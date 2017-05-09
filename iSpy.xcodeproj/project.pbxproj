@@ -30,6 +30,16 @@
 		D0D89FB21EC1CD44005C3E83 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D0D89FB11EC1CD44005C3E83 /* .swiftlint.yml */; };
 		D0D89FB81EC1D4D3005C3E83 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FB71EC1D4D3005C3E83 /* R.generated.swift */; };
 		D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FBB1EC1ED2B005C3E83 /* CreateTripViewController.swift */; };
+		D0D89FC91EC1F777005C3E83 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FBF1EC1F777005C3E83 /* CALayerExtension.swift */; };
+		D0D89FCA1EC1F777005C3E83 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC01EC1F777005C3E83 /* CollectionExtensions.swift */; };
+		D0D89FCB1EC1F777005C3E83 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC11EC1F777005C3E83 /* DateExtensions.swift */; };
+		D0D89FCC1EC1F777005C3E83 /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC21EC1F777005C3E83 /* DateFormatterExtensions.swift */; };
+		D0D89FCD1EC1F777005C3E83 /* NSManagedObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC31EC1F777005C3E83 /* NSManagedObjectExtensions.swift */; };
+		D0D89FCE1EC1F777005C3E83 /* NumberFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC41EC1F777005C3E83 /* NumberFormatterExtensions.swift */; };
+		D0D89FCF1EC1F777005C3E83 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC51EC1F777005C3E83 /* StringExtensions.swift */; };
+		D0D89FD01EC1F777005C3E83 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC61EC1F777005C3E83 /* UIColorExtensions.swift */; };
+		D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */; };
+		D0D89FD21EC1F777005C3E83 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC81EC1F777005C3E83 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +93,16 @@
 		D0D89FB11EC1CD44005C3E83 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D0D89FB71EC1D4D3005C3E83 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D0D89FBB1EC1ED2B005C3E83 /* CreateTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
+		D0D89FBF1EC1F777005C3E83 /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayerExtension.swift; path = Extensions/CALayerExtension.swift; sourceTree = "<group>"; };
+		D0D89FC01EC1F777005C3E83 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionExtensions.swift; path = Extensions/CollectionExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC11EC1F777005C3E83 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = Extensions/DateExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC21EC1F777005C3E83 /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterExtensions.swift; path = Extensions/DateFormatterExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC31EC1F777005C3E83 /* NSManagedObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSManagedObjectExtensions.swift; path = Extensions/NSManagedObjectExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC41EC1F777005C3E83 /* NumberFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberFormatterExtensions.swift; path = Extensions/NumberFormatterExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC51EC1F777005C3E83 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Extensions/StringExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC61EC1F777005C3E83 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Extensions/UIColorExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = Extensions/UIImageExtensions.swift; sourceTree = "<group>"; };
+		D0D89FC81EC1F777005C3E83 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
 		DE33B358D0A789DA151A1C94 /* Pods_iSpyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A0CF1F8399E66FF8BC766D /* Pods-iSpyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyTests/Pods-iSpyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D89F611EC1C52C005C3E83 /* iSpy */,
+				D0D89FBE1EC1F763005C3E83 /* Extensions */,
 				D0D89F761EC1C52C005C3E83 /* iSpyTests */,
 				D0D89F811EC1C52C005C3E83 /* iSpyUITests */,
 				D0D89F601EC1C52C005C3E83 /* Products */,
@@ -259,6 +280,24 @@
 				D0D89FBA1EC1ED02005C3E83 /* Trip Creation */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		D0D89FBE1EC1F763005C3E83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0D89FBF1EC1F777005C3E83 /* CALayerExtension.swift */,
+				D0D89FC01EC1F777005C3E83 /* CollectionExtensions.swift */,
+				D0D89FC11EC1F777005C3E83 /* DateExtensions.swift */,
+				D0D89FC21EC1F777005C3E83 /* DateFormatterExtensions.swift */,
+				D0D89FC31EC1F777005C3E83 /* NSManagedObjectExtensions.swift */,
+				D0D89FC41EC1F777005C3E83 /* NumberFormatterExtensions.swift */,
+				D0D89FC51EC1F777005C3E83 /* StringExtensions.swift */,
+				D0D89FC61EC1F777005C3E83 /* UIColorExtensions.swift */,
+				D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */,
+				D0D89FC81EC1F777005C3E83 /* UIViewExtensions.swift */,
+			);
+			name = Extensions;
+			path = iSpy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,16 +615,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D89FC91EC1F777005C3E83 /* CALayerExtension.swift in Sources */,
+				D0D89FCB1EC1F777005C3E83 /* DateExtensions.swift in Sources */,
+				D0D89FCA1EC1F777005C3E83 /* CollectionExtensions.swift in Sources */,
+				D0D89FCF1EC1F777005C3E83 /* StringExtensions.swift in Sources */,
 				D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */,
 				D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */,
 				D0D89FA71EC1CAFE005C3E83 /* Player.swift in Sources */,
+				D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */,
 				D0D89FA01EC1CAFE005C3E83 /* DataLoader.swift in Sources */,
 				D0D89FA91EC1CAFE005C3E83 /* TripService.swift in Sources */,
+				D0D89FD21EC1F777005C3E83 /* UIViewExtensions.swift in Sources */,
 				D0D89FA11EC1CAFE005C3E83 /* DataManager.swift in Sources */,
 				D0D89FA61EC1CAFE005C3E83 /* Location.swift in Sources */,
+				D0D89FCC1EC1F777005C3E83 /* DateFormatterExtensions.swift in Sources */,
 				D0D89FB81EC1D4D3005C3E83 /* R.generated.swift in Sources */,
 				D0D89FA21EC1CAFE005C3E83 /* PlatesTableViewCell.swift in Sources */,
 				D0D89F9F1EC1CAFE005C3E83 /* LoginViewController.swift in Sources */,
+				D0D89FCD1EC1F777005C3E83 /* NSManagedObjectExtensions.swift in Sources */,
+				D0D89FCE1EC1F777005C3E83 /* NumberFormatterExtensions.swift in Sources */,
+				D0D89FD01EC1F777005C3E83 /* UIColorExtensions.swift in Sources */,
 				D0D89FA41EC1CAFE005C3E83 /* BaseObject.swift in Sources */,
 				D0D89FA51EC1CAFE005C3E83 /* LicensePlate.swift in Sources */,
 				D0D89FA31EC1CAFE005C3E83 /* PlatesViewController.swift in Sources */,
