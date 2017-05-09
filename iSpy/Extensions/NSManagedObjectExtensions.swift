@@ -10,17 +10,17 @@ import UIKit
 import CoreData
 
 extension NSManagedObject {
-    
+
     static func fetchResultsForEntityInContext(_ context: NSManagedObjectContext,
                                                withName: String,
                                                predicate: NSPredicate? = nil,
                                                fetchLimit: Int? = nil,
                                                sortDescriptors: [NSSortDescriptor]? = nil) -> NSArray? {
-        
+
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
-        
+
         if let entity = NSEntityDescription.entity(forEntityName: withName, in: context) {
-            
+
             fetchRequest.entity = entity
             if let fetchLimit = fetchLimit {
                 fetchRequest.fetchLimit = fetchLimit
@@ -35,7 +35,7 @@ extension NSManagedObject {
                 // sort descriptors are not nil set them
                 fetchRequest.sortDescriptors = sortDescriptors!
             }
-            
+
             // Ready to fetch
             do {
                 let results = try context.fetch(fetchRequest)
@@ -44,18 +44,18 @@ extension NSManagedObject {
                 return nil
             }
         }
-        
+
         // if there was no enity just return empty array
         return NSArray()
     }
-    
+
     static func fetchOrInsertObject<T: NSManagedObject>(forPredicate predicate: NSPredicate, managedObjectContext: NSManagedObjectContext) -> T? {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: T.self))
             fetchRequest.predicate = predicate
-            
+
             fetchRequest.fetchLimit = 1
-            
+
             if let fetchResults = try (T.self as? T)?.managedObjectContext?.fetch(fetchRequest) as? [T] {
                 if fetchResults.count > 0 {
                     return fetchResults[0]
@@ -64,7 +64,7 @@ extension NSManagedObject {
         } catch let error {
             print("ERROR: \(error)")
         }
-        
+
         return nil
     }
 

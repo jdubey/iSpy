@@ -40,6 +40,7 @@
 		D0D89FD01EC1F777005C3E83 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC61EC1F777005C3E83 /* UIColorExtensions.swift */; };
 		D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */; };
 		D0D89FD21EC1F777005C3E83 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC81EC1F777005C3E83 /* UIViewExtensions.swift */; };
+		D0D89FD51EC204FC005C3E83 /* FlipTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FD41EC204FC005C3E83 /* FlipTransitionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		D0D89FC61EC1F777005C3E83 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Extensions/UIColorExtensions.swift; sourceTree = "<group>"; };
 		D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = Extensions/UIImageExtensions.swift; sourceTree = "<group>"; };
 		D0D89FC81EC1F777005C3E83 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
+		D0D89FD41EC204FC005C3E83 /* FlipTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipTransitionDelegate.swift; sourceTree = "<group>"; };
 		DE33B358D0A789DA151A1C94 /* Pods_iSpyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A0CF1F8399E66FF8BC766D /* Pods-iSpyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyTests/Pods-iSpyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -275,6 +277,7 @@
 		D0D89FBD1EC1EE94005C3E83 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0D89FD31EC204C1005C3E83 /* Custom Transitions */,
 				D0D89F901EC1CAFE005C3E83 /* Login */,
 				D0D89F951EC1CAFE005C3E83 /* Trip */,
 				D0D89FBA1EC1ED02005C3E83 /* Trip Creation */,
@@ -298,6 +301,14 @@
 			);
 			name = Extensions;
 			path = iSpy;
+			sourceTree = "<group>";
+		};
+		D0D89FD31EC204C1005C3E83 /* Custom Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				D0D89FD41EC204FC005C3E83 /* FlipTransitionDelegate.swift */,
+			);
+			name = "Custom Transitions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -624,6 +635,7 @@
 				D0D89FA71EC1CAFE005C3E83 /* Player.swift in Sources */,
 				D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */,
 				D0D89FA01EC1CAFE005C3E83 /* DataLoader.swift in Sources */,
+				D0D89FD51EC204FC005C3E83 /* FlipTransitionDelegate.swift in Sources */,
 				D0D89FA91EC1CAFE005C3E83 /* TripService.swift in Sources */,
 				D0D89FD21EC1F777005C3E83 /* UIViewExtensions.swift in Sources */,
 				D0D89FA11EC1CAFE005C3E83 /* DataManager.swift in Sources */,

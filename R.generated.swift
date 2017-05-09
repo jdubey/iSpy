@@ -134,7 +134,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -145,12 +145,20 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try main.validate()
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
@@ -160,11 +168,26 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType {
-      typealias InitialController = LoginViewController
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
+      let createTripViewController = StoryboardViewControllerResource<CreateTripViewController>(identifier: "CreateTripViewController")
       let name = "Main"
+      let platesViewController = StoryboardViewControllerResource<PlatesViewController>(identifier: "PlatesViewController")
+      
+      func createTripViewController(_: Void = ()) -> CreateTripViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: createTripViewController)
+      }
+      
+      func platesViewController(_: Void = ()) -> PlatesViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: platesViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.main().platesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'platesViewController' could not be loaded from storyboard 'Main' as 'PlatesViewController'.") }
+        if _R.storyboard.main().createTripViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'createTripViewController' could not be loaded from storyboard 'Main' as 'CreateTripViewController'.") }
+      }
       
       fileprivate init() {}
     }

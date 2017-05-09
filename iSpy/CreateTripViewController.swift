@@ -1,5 +1,5 @@
 //
-//  TripCreationViewController.swift
+//  CreateTripViewController.swift
 //  iSpy
 //
 //  Created by Dubey, Josh (UK - London) on 09/05/2017.
@@ -9,8 +9,7 @@
 import UIKit
 
 class CreateTripViewController: UIViewController {
-    
-    
+
     @IBOutlet weak var nameTripLabel: UILabel!
     @IBOutlet weak var nameTripTextField: UITextField!
     @IBOutlet weak var goButton: UIButton!
@@ -25,16 +24,15 @@ class CreateTripViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+    @IBAction func goButtonTapped(_ sender: UIButton) {
+        let newTrip = TripService.defaultService.createTrip()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let platesViewController = R.storyboard.main.platesViewController() {
+            platesViewController.trip = newTrip
+            presentingViewController?.present(platesViewController, animated: false, completion: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            })
+        }
     }
-    */
-
 }

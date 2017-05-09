@@ -13,7 +13,7 @@ extension Date {
     struct Gregorian {
         static let calendar = Calendar(identifier: .gregorian)
     }
-    
+
     /// Creates a normalized date, i.e. only day, month and year components
     ///
     /// - Returns: normalized date of receiver.  E.g. for 12/10/2016 01:43:12, returns 12/10/2016 00:00:00
@@ -44,8 +44,7 @@ extension Date {
     func isToday() -> Bool {
         return Gregorian.calendar.isDateInToday(self)
     }
-    
-    
+
     /// Check if a Date is the same day as the receiver
     ///
     /// - Parameter date: the date to check
@@ -53,7 +52,6 @@ extension Date {
     func isSameDay(date: Date) -> Bool {
         return Gregorian.calendar.isDate(self, equalTo: date, toGranularity: .day)
     }
-
 
     /// Adds the number of Days to the receiver and returns a new Date
     ///

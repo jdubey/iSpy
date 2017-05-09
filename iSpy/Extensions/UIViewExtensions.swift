@@ -39,7 +39,6 @@ extension UIView {
         return UIImage(view: self)
     }
 
-
     // MARK: - Animations
 
     /**

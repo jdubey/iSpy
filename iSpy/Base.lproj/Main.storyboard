@@ -43,7 +43,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="newTripTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ujh-zV-ABZ"/>
-                                    <segue destination="Xt9-i9-yn8" kind="presentation" identifier="CreateTripViewCOntroller" id="kzs-Ip-2tU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,7 +67,7 @@
         <!--Create Trip View Controller-->
         <scene sceneID="Fyq-Xg-RH8">
             <objects>
-                <viewController id="Xt9-i9-yn8" customClass="CreateTripViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateTripViewController" id="Xt9-i9-yn8" customClass="CreateTripViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lv0-M2-WXo"/>
                         <viewControllerLayoutGuide type="bottom" id="fmG-vJ-SL3"/>
@@ -83,8 +82,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x5g-Bu-Ae8">
-                                <rect key="frame" x="79" y="193" width="218" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x5g-Bu-Ae8">
+                                <rect key="frame" x="79" y="193" width="218" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="218" id="SUV-2f-XwA"/>
                                 </constraints>
@@ -96,9 +95,12 @@
                                 <rect key="frame" x="153" y="318" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goButtonTapped:" destination="Xt9-i9-yn8" eventType="touchUpInside" id="ae0-JO-aeN"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.67858297410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OOz-VK-T8q" firstAttribute="top" secondItem="Lv0-M2-WXo" secondAttribute="bottom" constant="144" id="RIt-vc-YSB"/>
                             <constraint firstItem="x5g-Bu-Ae8" firstAttribute="centerX" secondItem="6Sr-Rp-4mj" secondAttribute="centerX" id="RqR-Gz-FbB"/>
@@ -119,7 +121,7 @@
         <!--Plates View Controller-->
         <scene sceneID="PDJ-YJ-Hn2">
             <objects>
-                <viewController id="5gx-N1-ffi" customClass="PlatesViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlatesViewController" id="5gx-N1-ffi" customClass="PlatesViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mBW-We-cVP"/>
                         <viewControllerLayoutGuide type="bottom" id="h0k-Ay-Vyx"/>
@@ -136,7 +138,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oaq-me-Pc3" id="djN-1l-Coi">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kq-dQ-Mft">

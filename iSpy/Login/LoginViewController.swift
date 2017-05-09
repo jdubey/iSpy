@@ -14,11 +14,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var newTripButton: UIButton!
     @IBOutlet weak var loadTripButton: UIButton!
 
+    let animationDelegate = FlipTransitionDelegate()
+
     var trip: Trip?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         newTripButton.setTitle("New Trip", for: .normal)
         loadTripButton.setTitle("Load Trip", for: .normal)
     }
@@ -26,6 +28,11 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     @IBAction func newTripTapped(_ sender: UIButton) {
         trip = TripService.defaultService.createTrip()
+        if let createTripController = R.storyboard.main.createTripViewController() {
+            createTripController.modalPresentationStyle = .custom
+            createTripController.transitioningDelegate = animationDelegate
+            present(createTripController, animated: true, completion: nil)
+        }
     }
 
     @IBAction func loadTripTapped(_ sender: Any) {
