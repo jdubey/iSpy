@@ -1,0 +1,6 @@
+framework module Pods_iSpyUITests {
+  umbrella header "Pods-iSpyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

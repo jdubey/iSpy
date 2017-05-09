@@ -1,0 +1,29 @@
+PODS:
+  - R.swift (3.2.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
+  - Require (1.0.1)
+  - SwiftLint (0.18.1)
+
+DEPENDENCIES:
+  - R.swift
+  - RealmSwift
+  - Require
+  - SwiftLint
+
+SPEC CHECKSUMS:
+  R.swift: 207a372a2b5977caef440c696a368009460641d1
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
+  Require: d53aa5f529f280fed6bb9fba9802cbe4cd710403
+  SwiftLint: b467d08f5b25dc3b3cfed243d8e1b74b91714c67
+
+PODFILE CHECKSUM: 9a1c53794dc41c8e8d74802071460e43aa5e7eff
+
+COCOAPODS: 1.1.1

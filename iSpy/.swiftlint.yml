@@ -1,0 +1,9 @@
+excluded:
+- Pods
+- R.generated.swift
+- iSpyTests
+- iSpyUITests
+
+disabled_rules:
+- line_length
+ 
