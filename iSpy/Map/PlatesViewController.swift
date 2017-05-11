@@ -17,12 +17,12 @@ class PlatesViewController: UIViewController {
 
     private let realm = DataManager.defaultRealm()
 
-    var plates: Results<LicensePlate>?
+    var plates: LinkingObjects<LicensePlate>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        plates = realm.objects(LicensePlate.self)
+        plates = trip?.plates
 
         platesTableView.delegate = self
         platesTableView.dataSource = self

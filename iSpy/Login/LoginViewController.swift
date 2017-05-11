@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var newTripButton: UIButton!
     @IBOutlet weak var loadTripButton: UIButton!
 
-    let animationDelegate = FlipTransitionDelegate()
+    weak var animationDelegate = FlipTransitionDelegate()
 
     var trip: Trip?
 
@@ -26,20 +26,12 @@ class LoginViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @IBAction func newTripTapped(_ sender: UIButton) {
-        trip = TripService.defaultService.createTrip()
-        if let createTripController = R.storyboard.main.createTripViewController() {
-            createTripController.modalPresentationStyle = .custom
-            createTripController.transitioningDelegate = animationDelegate
-            present(createTripController, animated: true, completion: nil)
-        }
-    }
-
     @IBAction func loadTripTapped(_ sender: Any) {
         let loadedTrip = TripService.defaultService.fetchTrip()
         print("Trip = \(String(describing: loadedTrip))")
     }
 
+    // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.loginViewController.platesViewController.identifier {
             if let platesViewController = segue.destination as? PlatesViewController {
@@ -47,5 +39,4 @@ class LoginViewController: UIViewController {
             }
         }
     }
-
 }

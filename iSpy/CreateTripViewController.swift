@@ -26,13 +26,16 @@ class CreateTripViewController: UIViewController {
     }
 
     @IBAction func goButtonTapped(_ sender: UIButton) {
+
         let newTrip = TripService.defaultService.createTrip()
 
-        if let platesViewController = R.storyboard.main.platesViewController() {
-            platesViewController.trip = newTrip
-            presentingViewController?.present(platesViewController, animated: false, completion: { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
-            })
+        if let vc = self.presentingViewController as? UINavigationController {
+
+            if let platesViewController = R.storyboard.main.platesViewController() {
+                platesViewController.trip = newTrip
+                vc.pushViewController(platesViewController, animated: true)
+            }
         }
+            dismiss(animated: true)
     }
 }

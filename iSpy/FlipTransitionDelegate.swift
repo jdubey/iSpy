@@ -38,43 +38,55 @@ class FlipTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 //        snapshot.frame = initialFrame
 //        snapshot.layer.cornerRadius = 25
 //        snapshot.layer.masksToBounds = true
-            containerView.addSubview(toViewController.view)
+
 //            containerView.addSubview(snapshot)
 
         }
-
+containerView.addSubview(toViewController.view)
 //        toViewController.view.isHidden = true
         var fromTransform = CATransform3DMakeRotation(-(CGFloat)(M_PI_2), 0.0, 1.0, 0.0)
         var toTransform = CATransform3DMakeRotation(0.0, 0.0, 1.0, 0.0)
 
-        UIView.animateKeyframesWithDuration(
-            duration,
-            delay: 0,
-            options: .CalculationModeCubic,
-            animations: {
-                // 2
-                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 1/3, animations: {
-                    fromViewController.view.layer.transform = fromTransform
-                })
-                
-                // 3
-                UIView.addKeyframeWithRelativeStartTime(1/3, relativeDuration: 1/3, animations: {
-                    toViewController.view.layer.transform = toTransform
-                })
-                
-                // 4
-//                UIView.addKeyframeWithRelativeStartTime(2/3, relativeDuration: 1/3, animations: {
-//                    snapshot.frame = finalFrame
-//                })
-        },
-            completion: { _ in
-                // 5
-//                toVC.view.hidden = false
-                fromViewController.view.layer.transform = toTransform
-//                snapshot.removeFromSuperview()
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+        UIView.animateKeyframes(withDuration: 0.25, delay: 0.0, options: .calculationModeCubic, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/2, animations: {
+                fromViewController.view.layer.transform = fromTransform
+            })
+
+            UIView.addKeyframe(withRelativeStartTime: 1/2, relativeDuration: 1/2, animations: {
+                toViewController.view.layer.transform = toTransform
+            })
+        }, completion: { _ in
+            fromViewController.view.layer.transform = toTransform
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
 
+//        UIView.animateKeyframesWithDuration(
+//            duration,
+//            delay: 0,
+//            options: .CalculationModeCubic,
+//            animations: {
+//                // 2
+//                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 1/3, animations: {
+//                    fromViewController.view.layer.transform = fromTransform
+//                })
+//                
+//                // 3
+//                UIView.addKeyframeWithRelativeStartTime(1/3, relativeDuration: 1/3, animations: {
+//                    toViewController.view.layer.transform = toTransform
+//                })
+//                
+//                // 4
+////                UIView.addKeyframeWithRelativeStartTime(2/3, relativeDuration: 1/3, animations: {
+////                    snapshot.frame = finalFrame
+////                })
+//        },
+//            completion: { _ in
+//                // 5
+////                toVC.view.hidden = false
+//                fromViewController.view.layer.transform = toTransform
+////                snapshot.removeFromSuperview()
+//                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+//        })
 
     }
 
