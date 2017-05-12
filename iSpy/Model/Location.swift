@@ -9,8 +9,8 @@
 import UIKit
 import RealmSwift
 
-class Location: Object {
-    dynamic var latitude = 0.0
-    dynamic var longitude = 0.0
+class Location: BaseObject {
+    dynamic var latitude: Double = 0.0
+    dynamic var longitude: Double = 0.0
     dynamic var timestamp: Date?
 }

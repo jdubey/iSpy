@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import CleanroomLogger
 
 class PlatesViewController: UIViewController {
 
@@ -15,14 +16,14 @@ class PlatesViewController: UIViewController {
 
     var trip: Trip?
 
-    private let realm = DataManager.defaultRealm()
+    fileprivate let realm = DataManager.defaultRealm()
 
-    var plates: LinkingObjects<LicensePlate>?
+    var plateModels: [PlatesTableViewCellModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        plates = trip?.plates
+        plateModels = trip?.plates.map { PlatesTableViewCellModel($0) }
 
         platesTableView.delegate = self
         platesTableView.dataSource = self
@@ -38,7 +39,7 @@ extension PlatesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let plates = plates else {
+        guard let plates = plateModels else {
             return 0
         }
 
@@ -46,20 +47,23 @@ extension PlatesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.platesTableViewCell.identifier) as? PlatesTableViewCell {
+        let cell = (tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.platesTableViewCell.identifier) as? PlatesTableViewCell).require()
 
-            if let name = plates?[indexPath.row].name {
-                cell.nameLabel.text = name
-                cell.plateImageView.image = UIImage(named:name)
-            }
-            return cell
-        }
-
-        return UITableViewCell()
+        cell.model = plateModels?[indexPath.row]
+        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension PlatesViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let plateModel = plateModels?[indexPath.row] {
+            let location = LocationManager.defaultManager().currentLocation()
+            realm.beginWrite()
+            plateModel.licensePlate?.location = location
+            DataManager.safeWrite()
+            Log.debug?.message("License plate = \(plateModel.licensePlate)")
+        }
+    }
 }

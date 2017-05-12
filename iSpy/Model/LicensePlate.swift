@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class LicensePlate: BaseObject {
     dynamic var name = ""

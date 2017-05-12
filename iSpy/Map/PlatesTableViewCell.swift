@@ -7,21 +7,39 @@
 //
 
 import UIKit
+import MapKit
 
 class PlatesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var plateImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var plateImageView: UIImageView!
+    @IBOutlet private weak var mapView: MKMapView!
+
+    var model: PlatesTableViewCellModel? {
+        didSet {
+            if let name = model?.licensePlate?.name {
+                nameLabel.text = name
+                plateImageView.image = UIImage(named:name)
+            }
+            setUpMapView()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
 
-        // Configure the view for the selected state
+    func setUpMapView() {
+        if let location = model?.licensePlate?.location {
+            mapView.centerCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
+            annotation.backgroundColor = .green
+            mapView.addAnnotation(annotation)
+        }
     }
 
 }
