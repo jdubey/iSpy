@@ -1,6 +1,10 @@
 excluded:
- - Pods
- - R.generated.swift
+- Pods
+- Carthage
+- R.generated.swift
+- iSpyTests
+- iSpyUITests
 
 disabled_rules:
- - line_length
+- line_length
+
