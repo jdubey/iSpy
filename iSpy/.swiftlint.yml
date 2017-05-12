@@ -1,5 +1,6 @@
 excluded:
 - Pods
+- Carthage
 - R.generated.swift
 - iSpyTests
 - iSpyUITests

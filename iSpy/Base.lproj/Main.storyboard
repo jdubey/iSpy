@@ -23,46 +23,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIA-3e-CZO">
-                                <rect key="frame" x="165" y="419" width="46" height="30"/>
+                                <rect key="frame" x="151.5" y="419" width="73" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="B1F-nF-rvY"/>
-                                    <constraint firstAttribute="width" constant="46" id="mF8-bD-KCN"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="!Load Trip!"/>
                                 <connections>
-                                    <action selector="loadTripTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JKr-ay-bf8"/>
-                                    <segue destination="5gx-N1-ffi" kind="show" identifier="PlatesViewController" id="Mzb-jM-gKV"/>
+                                    <segue destination="Ztz-Sr-KF3" kind="presentation" identifier="LoadTripViewController" id="3un-wo-ItY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imy-kj-x25">
-                                <rect key="frame" x="165" y="245" width="46" height="30"/>
+                                <rect key="frame" x="153" y="245" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8KW-rj-yaR"/>
-                                    <constraint firstAttribute="width" constant="46" id="PSc-8M-9G0"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="!New Trip!"/>
                                 <connections>
                                     <segue destination="Xt9-i9-yn8" kind="presentation" identifier="CreateTripViewController" id="lmQ-Um-DON"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sj-P8-0fV">
+                                <rect key="frame" x="151.5" y="318" width="71" height="30"/>
+                                <state key="normal" title="!Continue!"/>
+                                <connections>
+                                    <segue destination="5gx-N1-ffi" kind="show" identifier="PlatesViewController" id="eog-h0-pDB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vIA-3e-CZO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ILh-db-PlR"/>
+                            <constraint firstItem="7sj-P8-0fV" firstAttribute="top" secondItem="imy-kj-x25" secondAttribute="bottom" constant="43" id="ImO-Mk-lF3"/>
                             <constraint firstItem="imy-kj-x25" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="181" id="b43-Gb-Ixe"/>
+                            <constraint firstItem="7sj-P8-0fV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sQG-Ak-jHx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vIA-3e-CZO" secondAttribute="bottom" constant="218" id="w0I-7m-csA"/>
                             <constraint firstItem="imy-kj-x25" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wP9-ss-eLC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R12-Qr-ALb"/>
                     <connections>
+                        <outlet property="continueTripButton" destination="7sj-P8-0fV" id="YnF-xR-a13"/>
                         <outlet property="loadTripButton" destination="vIA-3e-CZO" id="hUx-H8-FnE"/>
                         <outlet property="newTripButton" destination="imy-kj-x25" id="o8q-eK-I83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1198" y="45"/>
+            <point key="canvasLocation" x="1183" y="-99"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="Fyq-Xg-RH8">
@@ -91,10 +98,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkx-N3-Fym">
-                                <rect key="frame" x="153" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkx-N3-Fym">
+                                <rect key="frame" x="172.5" y="318" width="30" height="30"/>
+                                <state key="normal" title="!Go!"/>
                                 <connections>
                                     <action selector="goButtonTapped:" destination="Xt9-i9-yn8" eventType="touchUpInside" id="ae0-JO-aeN"/>
                                 </connections>
@@ -103,8 +109,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="0.67858297410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OOz-VK-T8q" firstAttribute="top" secondItem="Lv0-M2-WXo" secondAttribute="bottom" constant="144" id="RIt-vc-YSB"/>
+                            <constraint firstItem="Vkx-N3-Fym" firstAttribute="centerX" secondItem="6Sr-Rp-4mj" secondAttribute="centerX" id="Rl2-50-9sw"/>
                             <constraint firstItem="x5g-Bu-Ae8" firstAttribute="centerX" secondItem="6Sr-Rp-4mj" secondAttribute="centerX" id="RqR-Gz-FbB"/>
                             <constraint firstItem="OOz-VK-T8q" firstAttribute="centerX" secondItem="6Sr-Rp-4mj" secondAttribute="centerX" id="XgS-VU-JJd"/>
+                            <constraint firstItem="Vkx-N3-Fym" firstAttribute="top" secondItem="x5g-Bu-Ae8" secondAttribute="bottom" constant="103" id="knN-9z-fu3"/>
                             <constraint firstItem="x5g-Bu-Ae8" firstAttribute="top" secondItem="OOz-VK-T8q" secondAttribute="bottom" constant="8" id="xWi-ci-Xkg"/>
                         </constraints>
                     </view>
@@ -116,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTz-EF-DXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="-391.75412293853077"/>
+            <point key="canvasLocation" x="2028" y="-824"/>
         </scene>
         <!--Plates View Controller-->
         <scene sceneID="PDJ-YJ-Hn2">
@@ -138,7 +146,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oaq-me-Pc3" id="djN-1l-Coi">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kq-dQ-Mft">
@@ -176,7 +184,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9h-KY-CuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="269"/>
+            <point key="canvasLocation" x="2028" y="-99"/>
+        </scene>
+        <!--Load Trip View Controller-->
+        <scene sceneID="Uqn-GG-CRs">
+            <objects>
+                <viewController storyboardIdentifier="LoadTripViewController" id="Ztz-Sr-KF3" customClass="LoadTripViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eMo-NJ-ZyT"/>
+                        <viewControllerLayoutGuide type="bottom" id="wLJ-6s-WnH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dIG-2E-KIh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-ae-z6x">
+                                <rect key="frame" x="0.0" y="109" width="375" height="558"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadTripCell" id="J97-UP-n0k" customClass="LoadTripCell" customModule="iSpy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J97-UP-n0k" id="lJA-EB-fLj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ACj-DU-rwB">
+                                                    <rect key="frame" x="8" y="0.0" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="JQh-JQ-Rht"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!Trip Name!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uo-9m-7OL">
+                                                    <rect key="frame" x="51" y="11" width="89" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6Uo-9m-7OL" firstAttribute="leading" secondItem="ACj-DU-rwB" secondAttribute="trailing" constant="8" id="GNs-vw-LmY"/>
+                                                <constraint firstItem="ACj-DU-rwB" firstAttribute="leading" secondItem="lJA-EB-fLj" secondAttribute="leading" constant="8" id="XQu-cO-cAf"/>
+                                                <constraint firstItem="6Uo-9m-7OL" firstAttribute="centerY" secondItem="lJA-EB-fLj" secondAttribute="centerY" id="bZa-qb-qwl"/>
+                                                <constraint firstAttribute="bottom" secondItem="ACj-DU-rwB" secondAttribute="bottom" constant="8" id="eeL-h6-rlk"/>
+                                                <constraint firstItem="ACj-DU-rwB" firstAttribute="top" secondItem="lJA-EB-fLj" secondAttribute="top" id="rZf-CY-BYI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="currentTripImageView" destination="ACj-DU-rwB" id="gxM-7q-7ws"/>
+                                            <outlet property="tripNameLabel" destination="6Uo-9m-7OL" id="5gr-oV-MnT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fS-1d-4NI">
+                                <rect key="frame" x="313" y="28" width="46" height="30"/>
+                                <state key="normal" title="!close!"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="Ztz-Sr-KF3" eventType="touchUpInside" id="tnm-5h-p3Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4fS-1d-4NI" firstAttribute="top" secondItem="eMo-NJ-ZyT" secondAttribute="bottom" constant="8" id="Tmf-Ya-Tf3"/>
+                            <constraint firstItem="4fS-1d-4NI" firstAttribute="trailing" secondItem="dIG-2E-KIh" secondAttribute="trailingMargin" id="tXN-gY-iR2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="4fS-1d-4NI" id="WkU-cU-zGd"/>
+                        <outlet property="tripTableView" destination="IIh-ae-z6x" id="hS5-tO-ARv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cES-ZT-ipu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="656.22188905547227"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hny-LD-vPm">
@@ -194,7 +277,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fne-oq-6t9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="44.527736131934034"/>
+            <point key="canvasLocation" x="452" y="-99"/>
         </scene>
     </scenes>
 </document>

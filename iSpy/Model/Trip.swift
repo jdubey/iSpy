@@ -11,10 +11,11 @@ import RealmSwift
 
 class Trip: BaseObject {
     dynamic var name = ""
-    dynamic var isCurrentTrip = false
+    dynamic var isCurrentTrip = true
     dynamic var startDate: Date? = Date()
     dynamic var endData: Date?
     dynamic var player: Player?
 
     let plates = LinkingObjects(fromType: LicensePlate.self, property: "trip")
+
 }

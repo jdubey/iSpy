@@ -13,10 +13,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var newTripButton: UIButton!
     @IBOutlet weak var loadTripButton: UIButton!
+    @IBOutlet weak var continueTripButton: UIButton!
 
     weak var animationDelegate = FlipTransitionDelegate()
-
-    var trip: Trip?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +24,13 @@ class LoginViewController: UIViewController {
         loadTripButton.setTitle("Load Trip", for: .normal)
     }
 
-    // MARK: - Actions
-    @IBAction func loadTripTapped(_ sender: Any) {
-        let loadedTrip = TripService.defaultService.fetchTrip()
-        print("Trip = \(String(describing: loadedTrip))")
-    }
-
     // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.loginViewController.platesViewController.identifier {
             if let platesViewController = segue.destination as? PlatesViewController {
-                platesViewController.trip = trip
+                if let trip = TripService.defaultService.fetchCurrentTrip() {
+                    platesViewController.trip = trip
+                }
             }
         }
     }

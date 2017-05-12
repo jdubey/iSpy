@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import CleanroomLogger
 
 class TripService: NSObject {
 
@@ -17,15 +18,32 @@ class TripService: NSObject {
 
     func createTrip() -> Trip? {
 
+        if let currentTrip = fetchCurrentTrip() {
+            realm.beginWrite()
+            currentTrip.isCurrentTrip = false
+            if !DataManager.safeWrite() {
+                // Show an alert?  Pass result block in here?
+            }
+        }
+
         let trip: Trip? = Trip.createInRealm(realm: realm)
 
         if let trip = trip {
             DataLoader().loadStateData(with: realm, trip: trip)
         }
+
         return trip
     }
 
     func fetchTrip() -> Trip? {
         return realm.objects(Trip.self).last
+    }
+
+    func fetchCurrentTrip() -> Trip? {
+        return DataManager.defaultRealm().objects(Trip.self).filter("isCurrentTrip == true").first
+    }
+
+    func fetchAllTrips() -> Results<Trip> {
+        return DataManager.defaultRealm().objects(Trip.self)
     }
 }

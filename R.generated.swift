@@ -79,8 +79,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `LoadTripCell`.
+    static let loadTripCell: Rswift.ReuseIdentifier<LoadTripCell> = Rswift.ReuseIdentifier(identifier: "LoadTripCell")
     /// Reuse identifier `PlatesTableViewCell`.
     static let platesTableViewCell: Rswift.ReuseIdentifier<PlatesTableViewCell> = Rswift.ReuseIdentifier(identifier: "PlatesTableViewCell")
     
@@ -89,10 +91,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
   struct segue {
-    /// This struct is generated for `LoginViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `LoginViewController`, and contains static references to 3 segues.
     struct loginViewController {
       /// Segue identifier `CreateTripViewController`.
       static let createTripViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, CreateTripViewController> = Rswift.StoryboardSegueIdentifier(identifier: "CreateTripViewController")
+      /// Segue identifier `LoadTripViewController`.
+      static let loadTripViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, LoadTripViewController> = Rswift.StoryboardSegueIdentifier(identifier: "LoadTripViewController")
       /// Segue identifier `PlatesViewController`.
       static let platesViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, PlatesViewController> = Rswift.StoryboardSegueIdentifier(identifier: "PlatesViewController")
       
@@ -101,6 +105,13 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func createTripViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, CreateTripViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.createTripViewController, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `LoadTripViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func loadTripViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, LoadTripViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.loadTripViewController, segue: segue)
       }
       
       /// Optionally returns a typed version of segue `PlatesViewController`.
@@ -182,11 +193,16 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let createTripViewController = StoryboardViewControllerResource<CreateTripViewController>(identifier: "CreateTripViewController")
+      let loadTripViewController = StoryboardViewControllerResource<LoadTripViewController>(identifier: "LoadTripViewController")
       let name = "Main"
       let platesViewController = StoryboardViewControllerResource<PlatesViewController>(identifier: "PlatesViewController")
       
       func createTripViewController(_: Void = ()) -> CreateTripViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: createTripViewController)
+      }
+      
+      func loadTripViewController(_: Void = ()) -> LoadTripViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loadTripViewController)
       }
       
       func platesViewController(_: Void = ()) -> PlatesViewController? {
@@ -196,6 +212,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if _R.storyboard.main().platesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'platesViewController' could not be loaded from storyboard 'Main' as 'PlatesViewController'.") }
         if _R.storyboard.main().createTripViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'createTripViewController' could not be loaded from storyboard 'Main' as 'CreateTripViewController'.") }
+        if _R.storyboard.main().loadTripViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loadTripViewController' could not be loaded from storyboard 'Main' as 'LoadTripViewController'.") }
       }
       
       fileprivate init() {}

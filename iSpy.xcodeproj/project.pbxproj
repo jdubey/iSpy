@@ -10,6 +10,11 @@
 		393CCAC757B38307B5F05A8F /* Pods_iSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CB84A6E0B160C3C0BE6127 /* Pods_iSpy.framework */; };
 		B4ED68C25738095482C107A6 /* Pods_iSpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE33B358D0A789DA151A1C94 /* Pods_iSpyTests.framework */; };
 		B5B6F458C770D7553320E643 /* Pods_iSpyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC854C11DFBCD5CD0FE0433F /* Pods_iSpyUITests.framework */; };
+		D076E0AF1EC4D3A100FBCC2F /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */; };
+		D076E0B01EC4D3A100FBCC2F /* CleanroomLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D076E0B31EC5AEFA00FBCC2F /* LoadTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */; };
+		D076E0B51EC5BB4800FBCC2F /* LoadTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */; };
+		D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */; };
 		D0D89F631EC1C52C005C3E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */; };
 		D0D89F681EC1C52C005C3E83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F661EC1C52C005C3E83 /* Main.storyboard */; };
 		D0D89F6A1EC1C52C005C3E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F691EC1C52C005C3E83 /* Assets.xcassets */; };
@@ -60,6 +65,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D076E0B11EC4D3A100FBCC2F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D076E0B01EC4D3A100FBCC2F /* CleanroomLogger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		184EF4D938A1C9D940B6502C /* Pods-iSpy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpy.release.xcconfig"; path = "Pods/Target Support Files/Pods-iSpy/Pods-iSpy.release.xcconfig"; sourceTree = "<group>"; };
 		36CB84A6E0B160C3C0BE6127 /* Pods_iSpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +87,10 @@
 		6603BCE7BD0234E7F8D15158 /* Pods-iSpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyTests/Pods-iSpyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		75FE383DB17944778D2FDF26 /* Pods-iSpyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyUITests/Pods-iSpyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC854C11DFBCD5CD0FE0433F /* Pods_iSpyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomLogger.framework; path = Carthage/Build/iOS/CleanroomLogger.framework; sourceTree = "<group>"; };
+		D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripViewController.swift; sourceTree = "<group>"; };
+		D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCell.swift; sourceTree = "<group>"; };
+		D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCellModel.swift; sourceTree = "<group>"; };
 		D0D89F5F1EC1C52C005C3E83 /* iSpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D89F671EC1C52C005C3E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				393CCAC757B38307B5F05A8F /* Pods_iSpy.framework in Frameworks */,
+				D076E0AF1EC4D3A100FBCC2F /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +187,7 @@
 		D0D89F561EC1C52C005C3E83 = {
 			isa = PBXGroup;
 			children = (
+				D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */,
 				D0D89F611EC1C52C005C3E83 /* iSpy */,
 				D0D89FBE1EC1F763005C3E83 /* Extensions */,
 				D0D89F761EC1C52C005C3E83 /* iSpyTests */,
@@ -266,12 +291,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D0D89FBA1EC1ED02005C3E83 /* Trip Creation */ = {
+		D0D89FBA1EC1ED02005C3E83 /* Trip Management */ = {
 			isa = PBXGroup;
 			children = (
 				D0D89FBB1EC1ED2B005C3E83 /* CreateTripViewController.swift */,
+				D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */,
+				D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */,
+				D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */,
 			);
-			name = "Trip Creation";
+			name = "Trip Management";
 			sourceTree = "<group>";
 		};
 		D0D89FBD1EC1EE94005C3E83 /* UI */ = {
@@ -280,7 +308,7 @@
 				D0D89FD31EC204C1005C3E83 /* Custom Transitions */,
 				D0D89F901EC1CAFE005C3E83 /* Login */,
 				D0D89F951EC1CAFE005C3E83 /* Trip */,
-				D0D89FBA1EC1ED02005C3E83 /* Trip Creation */,
+				D0D89FBA1EC1ED02005C3E83 /* Trip Management */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -326,6 +354,7 @@
 				50A01AF797D0D1C997EA7FEC /* [CP] Embed Pods Frameworks */,
 				26A77F32A08D1DA97C73D3E6 /* [CP] Copy Pods Resources */,
 				D0D89FAD1EC1CC87005C3E83 /* SwiftLint */,
+				D076E0B11EC4D3A100FBCC2F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -602,7 +631,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\nexit 0";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\nexit 0";
 		};
 		F8FB2F4A69B4AE174C455FE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -632,10 +661,12 @@
 				D0D89FCF1EC1F777005C3E83 /* StringExtensions.swift in Sources */,
 				D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */,
 				D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */,
+				D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */,
 				D0D89FA71EC1CAFE005C3E83 /* Player.swift in Sources */,
 				D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */,
 				D0D89FA01EC1CAFE005C3E83 /* DataLoader.swift in Sources */,
 				D0D89FD51EC204FC005C3E83 /* FlipTransitionDelegate.swift in Sources */,
+				D076E0B51EC5BB4800FBCC2F /* LoadTripCell.swift in Sources */,
 				D0D89FA91EC1CAFE005C3E83 /* TripService.swift in Sources */,
 				D0D89FD21EC1F777005C3E83 /* UIViewExtensions.swift in Sources */,
 				D0D89FA11EC1CAFE005C3E83 /* DataManager.swift in Sources */,
@@ -647,6 +678,7 @@
 				D0D89FCD1EC1F777005C3E83 /* NSManagedObjectExtensions.swift in Sources */,
 				D0D89FCE1EC1F777005C3E83 /* NumberFormatterExtensions.swift in Sources */,
 				D0D89FD01EC1F777005C3E83 /* UIColorExtensions.swift in Sources */,
+				D076E0B31EC5AEFA00FBCC2F /* LoadTripViewController.swift in Sources */,
 				D0D89FA41EC1CAFE005C3E83 /* BaseObject.swift in Sources */,
 				D0D89FA51EC1CAFE005C3E83 /* LicensePlate.swift in Sources */,
 				D0D89FA31EC1CAFE005C3E83 /* PlatesViewController.swift in Sources */,
@@ -802,6 +834,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8PWF84GXNR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iSpy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jdubey.iSpy;
@@ -816,6 +852,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8PWF84GXNR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iSpy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jdubey.iSpy;

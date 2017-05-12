@@ -1,0 +1,15 @@
+ideas:
+
+Expanding table cell shows map for that plate
+Overall map has custom pin view
+Found plates turn from b/w to color
+profile with picture
+"Go" button car that animates and drives off screen.  Exhaust particle effect
+iCloud for trip transfer
+State info from wikipedia?
+
+
+UX Need:
+Best intro screen (create, continue, load)?  Tabs/Nav/Burger/custom?
+What kind of settings would be cool?
+Find styles on web

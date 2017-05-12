@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CleanroomLogger
 
 class CreateTripViewController: UIViewController {
 
@@ -14,10 +15,16 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var nameTripTextField: UITextField!
     @IBOutlet weak var goButton: UIButton!
 
+    var tripName: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.  test commit
+        nameTripTextField.delegate = self
+
+        goButton.setTitle("Stop", for: UIControlState.disabled)
+        goButton.setTitle("GO!", for: .normal)
+        goButton.isUserInteractionEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,15 +34,40 @@ class CreateTripViewController: UIViewController {
 
     @IBAction func goButtonTapped(_ sender: UIButton) {
 
-        let newTrip = TripService.defaultService.createTrip()
+        if let newTrip = TripService.defaultService.createTrip() {
 
-        if let vc = self.presentingViewController as? UINavigationController {
+            DataManager.defaultRealm().beginWrite()
+            newTrip.name = tripName.require()
+            _ = DataManager.safeWrite()
 
-            if let platesViewController = R.storyboard.main.platesViewController() {
-                platesViewController.trip = newTrip
-                vc.pushViewController(platesViewController, animated: true)
+            Log.debug?.message("Trip = \(newTrip)")
+
+            if let vc = self.presentingViewController as? UINavigationController {
+
+                if let platesViewController = R.storyboard.main.platesViewController() {
+                    platesViewController.trip = newTrip
+                    vc.pushViewController(platesViewController, animated: true)
+                }
+
+                dismiss(animated: true)
             }
+
+            //TOD: alert with action about creation fail, that dismisses vc
         }
-            dismiss(animated: true)
+    }
+}
+
+extension CreateTripViewController : UITextFieldDelegate {
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (textField.text?.characters.count)! > 0 {
+            tripName = textField.text
+            goButton.isUserInteractionEnabled = true
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
