@@ -15,6 +15,10 @@
 		D076E0B31EC5AEFA00FBCC2F /* LoadTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */; };
 		D076E0B51EC5BB4800FBCC2F /* LoadTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */; };
 		D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */; };
+		D076E0B91EC5C92300FBCC2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D076E0B81EC5C92300FBCC2F /* MapKit.framework */; };
+		D076E0BB1EC5C9D600FBCC2F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0BA1EC5C9D600FBCC2F /* LocationManager.swift */; };
+		D076E0C01EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0BF1EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift */; };
+		D076E0C21EC5F69400FBCC2F /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */; };
 		D0D89F631EC1C52C005C3E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */; };
 		D0D89F681EC1C52C005C3E83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F661EC1C52C005C3E83 /* Main.storyboard */; };
 		D0D89F6A1EC1C52C005C3E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F691EC1C52C005C3E83 /* Assets.xcassets */; };
@@ -91,6 +95,10 @@
 		D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripViewController.swift; sourceTree = "<group>"; };
 		D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCell.swift; sourceTree = "<group>"; };
 		D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCellModel.swift; sourceTree = "<group>"; };
+		D076E0B81EC5C92300FBCC2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D076E0BA1EC5C9D600FBCC2F /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D076E0BF1EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatesTableViewCellModel.swift; sourceTree = "<group>"; };
+		D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		D0D89F5F1EC1C52C005C3E83 /* iSpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D89F671EC1C52C005C3E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,7 +121,7 @@
 		D0D89F9B1EC1CAFE005C3E83 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D0D89F9C1EC1CAFE005C3E83 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D0D89F9D1EC1CAFE005C3E83 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
-		D0D89F9E1EC1CAFE005C3E83 /* TripService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripService.swift; sourceTree = "<group>"; };
+		D0D89F9E1EC1CAFE005C3E83 /* TripService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripService.swift; path = Model/TripService.swift; sourceTree = "<group>"; };
 		D0D89FB11EC1CD44005C3E83 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D0D89FB71EC1D4D3005C3E83 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D0D89FBB1EC1ED2B005C3E83 /* CreateTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				393CCAC757B38307B5F05A8F /* Pods_iSpy.framework in Frameworks */,
+				D076E0B91EC5C92300FBCC2F /* MapKit.framework in Frameworks */,
 				D076E0AF1EC4D3A100FBCC2F /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,11 +186,20 @@
 		BD8D1628C83A59C717693511 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D076E0B81EC5C92300FBCC2F /* MapKit.framework */,
 				36CB84A6E0B160C3C0BE6127 /* Pods_iSpy.framework */,
 				DE33B358D0A789DA151A1C94 /* Pods_iSpyTests.framework */,
 				CC854C11DFBCD5CD0FE0433F /* Pods_iSpyUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D076E0BC1EC5CA7800FBCC2F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D0D89F9E1EC1CAFE005C3E83 /* TripService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		D0D89F561EC1C52C005C3E83 = {
@@ -211,6 +229,7 @@
 		D0D89F611EC1C52C005C3E83 /* iSpy */ = {
 			isa = PBXGroup;
 			children = (
+				D076E0BC1EC5CA7800FBCC2F /* Services */,
 				D0D89FBD1EC1EE94005C3E83 /* UI */,
 				D0D89F921EC1CAFE005C3E83 /* Manager */,
 				D0D89F981EC1CAFE005C3E83 /* Model */,
@@ -255,6 +274,7 @@
 			children = (
 				D0D89F931EC1CAFE005C3E83 /* DataLoader.swift */,
 				D0D89F941EC1CAFE005C3E83 /* DataManager.swift */,
+				D076E0BA1EC5C9D600FBCC2F /* LocationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -264,6 +284,8 @@
 			children = (
 				D0D89F961EC1CAFE005C3E83 /* PlatesTableViewCell.swift */,
 				D0D89F971EC1CAFE005C3E83 /* PlatesViewController.swift */,
+				D076E0BF1EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift */,
+				D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */,
 			);
 			name = Trip;
 			path = Map;
@@ -277,7 +299,6 @@
 				D0D89F9B1EC1CAFE005C3E83 /* Location.swift */,
 				D0D89F9C1EC1CAFE005C3E83 /* Player.swift */,
 				D0D89F9D1EC1CAFE005C3E83 /* Trip.swift */,
-				D0D89F9E1EC1CAFE005C3E83 /* TripService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +442,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8PWF84GXNR;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D0D89F721EC1C52C005C3E83 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -661,7 +687,9 @@
 				D0D89FCF1EC1F777005C3E83 /* StringExtensions.swift in Sources */,
 				D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */,
 				D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */,
+				D076E0BB1EC5C9D600FBCC2F /* LocationManager.swift in Sources */,
 				D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */,
+				D076E0C01EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift in Sources */,
 				D0D89FA71EC1CAFE005C3E83 /* Player.swift in Sources */,
 				D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */,
 				D0D89FA01EC1CAFE005C3E83 /* DataLoader.swift in Sources */,
@@ -675,6 +703,7 @@
 				D0D89FB81EC1D4D3005C3E83 /* R.generated.swift in Sources */,
 				D0D89FA21EC1CAFE005C3E83 /* PlatesTableViewCell.swift in Sources */,
 				D0D89F9F1EC1CAFE005C3E83 /* LoginViewController.swift in Sources */,
+				D076E0C21EC5F69400FBCC2F /* AnnotationView.swift in Sources */,
 				D0D89FCD1EC1F777005C3E83 /* NSManagedObjectExtensions.swift in Sources */,
 				D0D89FCE1EC1F777005C3E83 /* NumberFormatterExtensions.swift in Sources */,
 				D0D89FD01EC1F777005C3E83 /* UIColorExtensions.swift in Sources */,
