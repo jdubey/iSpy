@@ -14,12 +14,21 @@ class PlatesTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var plateImageView: UIImageView!
     @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet weak var expandButton: UIButton!
 
     var model: PlatesTableViewCellModel? {
         didSet {
             if let name = model?.licensePlate?.name {
                 nameLabel.text = name
-                plateImageView.image = UIImage(named:name)
+                var imageName = name + "_bw"
+                if let found = model?.found, found == true {
+                    if found == true {
+                        imageName = name
+                        expandButton.isHidden = false
+                        expandButton.isEnabled = true
+                    }
+                }
+                plateImageView.image = UIImage(named:imageName)
             }
             setUpMapView()
         }
@@ -27,6 +36,9 @@ class PlatesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        expandButton.isHidden = true
+        expandButton.isEnabled = false
+        self.contentView.backgroundColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,5 +53,4 @@ class PlatesTableViewCell: UITableViewCell {
             mapView.addAnnotation(annotation)
         }
     }
-
 }

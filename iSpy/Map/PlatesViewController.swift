@@ -60,10 +60,14 @@ extension PlatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let plateModel = plateModels?[indexPath.row] {
             let location = LocationManager.defaultManager().currentLocation()
-            realm.beginWrite()
-            plateModel.licensePlate?.location = location
-            DataManager.safeWrite()
+            plateModel.location = location
+            plateModel.found = true
             Log.debug?.message("License plate = \(plateModel.licensePlate)")
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }

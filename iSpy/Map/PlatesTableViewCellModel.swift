@@ -12,6 +12,33 @@ import MapKit
 class PlatesTableViewCellModel: NSObject {
 
     var licensePlate: LicensePlate?
+    var isExpanded = false
+
+    let realm = DataManager.defaultRealm()
+    var found: Bool {
+        get {
+            if let found = self.licensePlate?.found {
+                return found
+            }
+            return false
+        }
+        set {
+            realm.beginWrite()
+            licensePlate?.found = newValue
+            DataManager.safeWrite()
+        }
+    }
+
+    var location: Location? {
+        get {
+            return self.licensePlate?.location
+        }
+        set {
+            realm.beginWrite()
+            licensePlate?.location = newValue
+            DataManager.safeWrite()
+        }
+    }
 
     convenience init(_ plate: LicensePlate?) {
         self.init()
