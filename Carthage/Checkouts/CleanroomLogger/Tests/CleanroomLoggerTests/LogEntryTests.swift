@@ -10,8 +10,10 @@ import XCTest
 import Foundation
 import CleanroomLogger
 
-class LogEntryTests: LoggerTestCase {
-    func testCallerInfo() {
+class LogEntryTests: LoggerTestCase
+{
+    func testCallerInfo()
+    {
         //
         // record the calling thread ID for future testing
         //
@@ -42,7 +44,8 @@ class LogEntryTests: LoggerTestCase {
         XCTAssertEqual(logEntry.callingThreadID, threadID)
     }
 
-    func testProcessInfo() {
+    func testProcessInfo()
+    {
         Log.info?.value("Process info test")
 
         let logEntry = recorder.buffer.first!.0
@@ -55,7 +58,8 @@ class LogEntryTests: LoggerTestCase {
         XCTAssertEqual(logEntry.processID, ProcessInfo.processInfo.processIdentifier)
     }
 
-    func testLogSeverity() {
+    func testLogSeverity()
+    {
         Log.error?.message("Logging an error message")
         Log.warning?.message("Logging a warning message")
         Log.info?.message("Logging an info message")

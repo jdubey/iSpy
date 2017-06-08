@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
     /// Image `Alabama_bw`.
     static let alabama_bw = Rswift.ImageResource(bundle: R.hostingBundle, name: "Alabama_bw")
@@ -50,8 +50,12 @@ struct R: Rswift.Validatable {
     static let alaska = Rswift.ImageResource(bundle: R.hostingBundle, name: "Alaska")
     /// Image `Arizona`.
     static let arizona = Rswift.ImageResource(bundle: R.hostingBundle, name: "Arizona")
-    /// Image `us_map`.
-    static let us_map = Rswift.ImageResource(bundle: R.hostingBundle, name: "us_map")
+    /// Image `green_tab`.
+    static let green_tab = Rswift.ImageResource(bundle: R.hostingBundle, name: "green_tab")
+    /// Image `red_tab`.
+    static let red_tab = Rswift.ImageResource(bundle: R.hostingBundle, name: "red_tab")
+    /// Image `yellow_tab`.
+    static let yellow_tab = Rswift.ImageResource(bundle: R.hostingBundle, name: "yellow_tab")
     
     /// `UIImage(named: "Alabama", bundle: ..., traitCollection: ...)`
     static func alabama(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -73,9 +77,19 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.arizona, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "us_map", bundle: ..., traitCollection: ...)`
-    static func us_map(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.us_map, compatibleWith: traitCollection)
+    /// `UIImage(named: "green_tab", bundle: ..., traitCollection: ...)`
+    static func green_tab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.green_tab, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "red_tab", bundle: ..., traitCollection: ...)`
+    static func red_tab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.red_tab, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "yellow_tab", bundle: ..., traitCollection: ...)`
+    static func yellow_tab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.yellow_tab, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -96,41 +110,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
   struct segue {
-    /// This struct is generated for `LoginViewController`, and contains static references to 3 segues.
-    struct loginViewController {
-      /// Segue identifier `CreateTripViewController`.
-      static let createTripViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, CreateTripViewController> = Rswift.StoryboardSegueIdentifier(identifier: "CreateTripViewController")
-      /// Segue identifier `LoadTripViewController`.
-      static let loadTripViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, LoadTripViewController> = Rswift.StoryboardSegueIdentifier(identifier: "LoadTripViewController")
-      /// Segue identifier `PlatesViewController`.
-      static let platesViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, LoginViewController, PlatesViewController> = Rswift.StoryboardSegueIdentifier(identifier: "PlatesViewController")
-      
-      /// Optionally returns a typed version of segue `CreateTripViewController`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func createTripViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, CreateTripViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.createTripViewController, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `LoadTripViewController`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func loadTripViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, LoadTripViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.loadTripViewController, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `PlatesViewController`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func platesViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, PlatesViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.platesViewController, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   
@@ -196,7 +177,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = LoginViewController
       
       let bundle = R.hostingBundle
       let createTripViewController = StoryboardViewControllerResource<CreateTripViewController>(identifier: "CreateTripViewController")
@@ -217,6 +198,9 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "yellow_tab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'yellow_tab' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "green_tab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'green_tab' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "red_tab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'red_tab' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().platesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'platesViewController' could not be loaded from storyboard 'Main' as 'PlatesViewController'.") }
         if _R.storyboard.main().createTripViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'createTripViewController' could not be loaded from storyboard 'Main' as 'CreateTripViewController'.") }
         if _R.storyboard.main().loadTripViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loadTripViewController' could not be loaded from storyboard 'Main' as 'LoadTripViewController'.") }

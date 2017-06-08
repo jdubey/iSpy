@@ -10,7 +10,8 @@
  A `LogConfiguration` that uses an underlying `RotatingLogFileRecorder` to
  maintain a directory of log files that are rotated on a daily basis.
  */
-open class RotatingLogFileConfiguration: BasicLogConfiguration {
+open class RotatingLogFileConfiguration: BasicLogConfiguration
+{
     /** The filesystem path to a directory where the log files will be
      stored. */
     open var directoryPath: String {
@@ -56,7 +57,8 @@ open class RotatingLogFileConfiguration: BasicLogConfiguration {
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
      */
-    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, filters: [LogFilter] = [], formatters: [LogFormatter] = [ReadableLogFormatter()]) {
+    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, filters: [LogFilter] = [], formatters: [LogFormatter] = [ReadableLogFormatter()])
+    {
         logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath, formatters: formatters)
 
         super.init(minimumSeverity: minimumSeverity, filters: filters, recorders: [logFileRecorder], synchronousMode: synchronousMode)
@@ -69,7 +71,8 @@ open class RotatingLogFileConfiguration: BasicLogConfiguration {
      - throws: If the function fails to create a directory at `directoryPath`.
      */
     open func createLogDirectory()
-        throws {
+        throws
+    {
         try logFileRecorder.createLogDirectory()
     }
 }

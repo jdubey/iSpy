@@ -6,7 +6,7 @@ target 'iSpy' do
   use_frameworks!
 
   # Pods for iSpy
-	pod 'RealmSwift'
+	pod 'RealmSwift', '~> 2.8'
 	pod 'SwiftLint'
 	pod 'R.swift'
     pod 'Require'

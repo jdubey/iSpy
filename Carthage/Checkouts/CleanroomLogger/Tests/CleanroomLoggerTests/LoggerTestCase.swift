@@ -17,18 +17,21 @@ fileprivate let _bufferConfig = BasicLogConfiguration(minimumSeverity: .verbose,
  The `LoggerTestCase` should be used for any test that relies on 
  CleanroomLogger being enabled and configured properly.
  */
-class LoggerTestCase: XCTestCase {
+class LoggerTestCase: XCTestCase
+{
     var recorder: BufferedLogEntryMessageRecorder {
         return _recorder
     }
 
-    override func setUp() {
+    override func setUp()
+    {
         Log.enable(configuration: [_xcodeConfig, _bufferConfig])
 
         super.setUp()
     }
 
-    override func tearDown() {
+    override func tearDown()
+    {
         // clear out the buffer before the next test run
         recorder.clear()
 

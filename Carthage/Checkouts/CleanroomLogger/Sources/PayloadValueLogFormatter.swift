@@ -10,7 +10,8 @@
  A `LogFormatter` that returns the message content of a `LogEntry` whose
  `payload` is a `.value` value.
  */
-public struct PayloadValueLogFormatter: LogFormatter {
+public struct PayloadValueLogFormatter: LogFormatter
+{
     /**
      The initializer.
      */
@@ -26,7 +27,8 @@ public struct PayloadValueLogFormatter: LogFormatter {
      `payload` with a `.value` value.
      */
     public func format(_ entry: LogEntry)
-        -> String? {
+        -> String?
+    {
         guard case .value(let v) = entry.payload else { return nil }
 
         guard let value = v else {
@@ -39,9 +41,11 @@ public struct PayloadValueLogFormatter: LogFormatter {
         pieces.append(": ")
         if let custom = value as? CustomDebugStringConvertible {
             pieces.append(custom.debugDescription)
-        } else if let custom = value as? CustomStringConvertible {
+        }
+        else if let custom = value as? CustomStringConvertible {
             pieces.append(custom.description)
-        } else {
+        }
+        else {
             pieces.append(String(describing: value))
         }
 

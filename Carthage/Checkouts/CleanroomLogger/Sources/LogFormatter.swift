@@ -10,7 +10,8 @@
  `LogFormatter`s are used to attempt to create string representations of
  `LogEntry` instances.
  */
-public protocol LogFormatter {
+public protocol LogFormatter
+{
     /**
      Called to create a string representation of the passed-in `LogEntry`.
      

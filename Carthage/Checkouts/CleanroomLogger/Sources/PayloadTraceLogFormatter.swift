@@ -10,7 +10,8 @@
  A `LogFormatter` that returns the `callingStackFrame` of a `LogEntry` whose
  `payload` is `.trace`.
  */
-public struct PayloadTraceLogFormatter: LogFormatter {
+public struct PayloadTraceLogFormatter: LogFormatter
+{
     /**
      The initializer.
      */
@@ -26,7 +27,8 @@ public struct PayloadTraceLogFormatter: LogFormatter {
      `payload` with a `.trace` value.
      */
     public func format(_ entry: LogEntry)
-        -> String? {
+        -> String?
+    {
         guard case .trace = entry.payload else { return nil }
 
         return entry.callingStackFrame

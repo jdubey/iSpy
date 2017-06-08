@@ -10,7 +10,8 @@
  The `ConcatenatingLogFormatter` lets you combine the output of multiple
  `LogFormatter`s by concatenating their output and returning the result.
  */
-open class ConcatenatingLogFormatter: LogFormatter {
+open class ConcatenatingLogFormatter: LogFormatter
+{
     /** The `LogFormatter`s whose output will be concatenated. */
     open let formatters: [LogFormatter]
 
@@ -37,7 +38,8 @@ open class ConcatenatingLogFormatter: LogFormatter {
      is `true`, _all_ of the `formatters` must return strings; if _any_
      formatter returns `nil`, the receiver _also_ returns `nil`.
      */
-    public init(formatters: [LogFormatter], hardFail: Bool = false) {
+    public init(formatters: [LogFormatter], hardFail: Bool = false)
+    {
         self.formatters = formatters
         self.hardFail = hardFail
     }
@@ -52,7 +54,8 @@ open class ConcatenatingLogFormatter: LogFormatter {
      to the receiver's `hardFail` property.
      */
     open func format(_ entry: LogEntry)
-        -> String? {
+        -> String?
+    {
         var allFormatted = [String]()
         for f in formatters {
             if let formatted = f.format(entry) {
@@ -69,3 +72,4 @@ open class ConcatenatingLogFormatter: LogFormatter {
         return allFormatted.joined(separator: "")
     }
 }
+

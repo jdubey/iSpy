@@ -14,7 +14,8 @@ import Dispatch
  log messages to the standard output stream ("`stdout`") of the running
  process.
 */
-open class StandardOutputLogRecorder: OutputStreamLogRecorder {
+open class StandardOutputLogRecorder: OutputStreamLogRecorder
+{
     /**
      Initializes a `StandardOutputLogRecorder` instance to use the specified
      `LogFormatter`s for formatting log messages.
@@ -25,7 +26,9 @@ open class StandardOutputLogRecorder: OutputStreamLogRecorder {
      - parameter queue: The `DispatchQueue` to use for the recorder. If `nil`,
      a new queue will be created.
     */
-    public init(formatters: [LogFormatter], queue: DispatchQueue? = nil) {
+    public init(formatters: [LogFormatter], queue: DispatchQueue? = nil)
+    {
         super.init(stream: stdout, formatters: formatters, queue: queue)
     }
 }
+

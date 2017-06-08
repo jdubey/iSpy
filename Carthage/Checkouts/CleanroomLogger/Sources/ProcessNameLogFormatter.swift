@@ -12,10 +12,11 @@
  This is typically combined with other `LogFormatter`s within a
  `ConcatenatingLogFormatter`.
  */
-public struct ProcessNameLogFormatter: LogFormatter {
+public struct ProcessNameLogFormatter: LogFormatter
+{
     /** The initializer. */
     public init() {}
-
+    
     /**
      Formats the passed-in `LogEntry` by returning its `processName` property.
      
@@ -24,7 +25,8 @@ public struct ProcessNameLogFormatter: LogFormatter {
      - returns: The formatted result; never `nil`.
      */
     public func format(_ entry: LogEntry)
-        -> String? {
+        -> String?
+    {
         return entry.processName
     }
 }

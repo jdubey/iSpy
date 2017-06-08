@@ -9,7 +9,8 @@
 /**
  Allows the specification of different field delimiters.
  */
-public enum DelimiterStyle {
+public enum DelimiterStyle
+{
     /** Specifies a pipe character with a space character on each side. */
     case spacedPipe
 
@@ -26,7 +27,8 @@ public enum DelimiterStyle {
     case custom(String)
 }
 
-public extension DelimiterStyle {
+public extension DelimiterStyle
+{
     /**
      Returns the field delimiter string indicated by the receiver's value.
      */
@@ -47,7 +49,8 @@ public extension DelimiterStyle {
  This is typically combined with other `LogFormatter`s within a
  `ConcatenatingLogFormatter`.
  */
-public struct DelimiterLogFormatter: LogFormatter {
+public struct DelimiterLogFormatter: LogFormatter
+{
     /** The `DelimiterStyle` that determines the return value of the
      receiver's `format(_:)` function. */
     public let style: DelimiterStyle
@@ -58,7 +61,8 @@ public struct DelimiterLogFormatter: LogFormatter {
      
      - parameter style: The field separator style.
      */
-    public init(style: DelimiterStyle = .spacedPipe) {
+    public init(style: DelimiterStyle = .spacedPipe)
+    {
         self.style = style
     }
 
@@ -71,7 +75,8 @@ public struct DelimiterLogFormatter: LogFormatter {
      - returns: The value of `style.delimiter` property; never `nil`.
      */
     public func format(_ entry: LogEntry)
-        -> String? {
+        -> String?
+    {
         return style.delimiter
     }
 }

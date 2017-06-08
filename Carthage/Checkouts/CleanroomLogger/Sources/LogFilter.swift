@@ -11,7 +11,8 @@
  `LogConfiguration` are given a chance to prevent the entry from being recorded
  by returning `false` from the `shouldRecord(entry:)` function.
 */
-public protocol LogFilter {
+public protocol LogFilter
+{
     /**
      Called to determine whether the given `LogEntry` should be recorded.
      
@@ -27,7 +28,8 @@ public protocol LogFilter {
  A `LogFilter` implementation that filters out any `LogEntry` with a
  `LogSeverity` less than a specified value.
 */
-public struct LogSeverityFilter: LogFilter {
+public struct LogSeverityFilter: LogFilter
+{
     /** The `LogSeverity` associated with the receiver. */
     public let severity: LogSeverity
 
@@ -39,7 +41,8 @@ public struct LogSeverityFilter: LogFilter {
      log entries with a severity equal to or more severe than this value will
      pass through the filter.
     */
-    public init(severity: LogSeverity) {
+    public init(severity: LogSeverity)
+    {
         self.severity = severity
     }
 
@@ -52,7 +55,8 @@ public struct LogSeverityFilter: LogFilter {
      receiver's `severity` property; `false` otherwise.
      */
     public func shouldRecord(entry: LogEntry)
-        -> Bool {
+        -> Bool
+    {
         return entry.severity >= severity
     }
 }

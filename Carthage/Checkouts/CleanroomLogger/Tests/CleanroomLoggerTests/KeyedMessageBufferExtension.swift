@@ -8,9 +8,11 @@
 
 import CleanroomLogger
 
-extension BufferedLogEntryMessageRecorder {
+extension BufferedLogEntryMessageRecorder
+{
     internal func keyedMessageBuffer()
-        -> [String: LogEntry] {
+        -> [String: LogEntry]
+    {
         var keyedBuffer = [String: LogEntry]()
         for (log, _) in buffer {
             if case .message(let msg) = log.payload {
