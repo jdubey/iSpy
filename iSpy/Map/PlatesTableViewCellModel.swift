@@ -9,10 +9,20 @@
 import UIKit
 import MapKit
 
+protocol PlatesTableViewCellModelDelegate: class {
+    func plateCellModelExpansionDidChange(_ model: PlatesTableViewCellModel)
+}
+
 class PlatesTableViewCellModel: NSObject {
 
     var licensePlate: LicensePlate?
-    var isExpanded = false
+    weak var delegate: PlatesTableViewCellModelDelegate?
+
+    var isExpanded = false {
+        didSet {
+            delegate?.plateCellModelExpansionDidChange(self)
+        }
+    }
 
     let realm = DataManager.defaultRealm()
     var found: Bool {
@@ -25,7 +35,7 @@ class PlatesTableViewCellModel: NSObject {
         set {
             realm.beginWrite()
             licensePlate?.found = newValue
-            DataManager.safeWrite()
+            _ = DataManager.safeWrite()
         }
     }
 
@@ -36,7 +46,7 @@ class PlatesTableViewCellModel: NSObject {
         set {
             realm.beginWrite()
             licensePlate?.location = newValue
-            DataManager.safeWrite()
+            _ = DataManager.safeWrite()
         }
     }
 

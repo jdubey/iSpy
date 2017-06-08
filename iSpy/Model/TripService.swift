@@ -44,6 +44,9 @@ class TripService: NSObject {
     }
 
     func fetchAllTrips() -> Results<Trip> {
-        return DataManager.defaultRealm().objects(Trip.self)
+        let sortProperties = [SortDescriptor(keyPath: "isCurrentTrip", ascending: false), SortDescriptor(keyPath: "name", ascending: true)]
+
+        return DataManager.defaultRealm().objects(Trip.self).sorted(by: sortProperties)
     }
+
 }

@@ -14,20 +14,30 @@ class PlatesViewController: UIViewController {
 
     @IBOutlet weak var platesTableView: UITableView!
 
-    var trip: Trip?
+    lazy var trip: Trip? = {
+        return TripService.defaultService.fetchCurrentTrip()
+    }()
 
     fileprivate let realm = DataManager.defaultRealm()
 
-    var plateModels: [PlatesTableViewCellModel]?
+    var plateModels = [PlatesTableViewCellModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        plateModels = trip?.plates.map { PlatesTableViewCellModel($0) }
+        self.title = trip?.name
+
+        if let plates = trip?.plates {
+            plateModels = plates.map ({ PlatesTableViewCellModel($0) })
+        }
+
+        plateModels.forEach { model in
+            model.delegate = self
+        }
 
         platesTableView.delegate = self
         platesTableView.dataSource = self
-
+        platesTableView.tableFooterView = UIView()
     }
 }
 
@@ -39,17 +49,13 @@ extension PlatesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let plates = plateModels else {
-            return 0
-        }
-
-        return plates.count
+        return plateModels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.platesTableViewCell.identifier) as? PlatesTableViewCell).require()
 
-        cell.model = plateModels?[indexPath.row]
+        cell.model = plateModels[indexPath.row]
         return cell
     }
 }
@@ -58,16 +64,28 @@ extension PlatesViewController: UITableViewDataSource {
 extension PlatesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let plateModel = plateModels?[indexPath.row] {
+        let plateModel = plateModels[indexPath.row]
             let location = LocationManager.defaultManager().currentLocation()
             plateModel.location = location
             plateModel.found = true
-            Log.debug?.message("License plate = \(plateModel.licensePlate)")
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
+            Log.debug?.message("License plate = \(String(describing: plateModel.licensePlate))")
+            tableView.reloadRows(at: [indexPath], with: .fade)
+
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         if plateModels[indexPath.row].isExpanded {
+            return 200
+        }
         return 50
     }
+}
+
+// MARK: - PlatesTableViewCellModelDelegate
+extension PlatesViewController: PlatesTableViewCellModelDelegate {
+    func plateCellModelExpansionDidChange(_ model: PlatesTableViewCellModel) {
+        platesTableView.beginUpdates()
+        platesTableView.endUpdates()
+    }
+
 }

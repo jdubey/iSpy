@@ -9,6 +9,10 @@
 import UIKit
 import CleanroomLogger
 
+protocol CreateTripViewControllerDelegate: class {
+    func didCreateTrip(_ createTripViewController: CreateTripViewController)
+}
+
 class CreateTripViewController: UIViewController {
 
     @IBOutlet weak var nameTripLabel: UILabel!
@@ -16,15 +20,18 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var goButton: UIButton!
 
     var tripName: String?
+    weak var delegate: CreateTripViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nameTripTextField.delegate = self
+        nameTripTextField.becomeFirstResponder()
 
-        goButton.setTitle("Stop", for: UIControlState.disabled)
+        goButton.setTitle("Stop", for: .disabled)
+        goButton.setTitleColor(.red, for: .disabled)
         goButton.setTitle("GO!", for: .normal)
-        goButton.isUserInteractionEnabled = false
+        goButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,20 +44,22 @@ class CreateTripViewController: UIViewController {
         if let newTrip = TripService.defaultService.createTrip() {
 
             DataManager.defaultRealm().beginWrite()
-            newTrip.name = tripName.require()
+            newTrip.name = nameTripTextField.text.require()
             _ = DataManager.safeWrite()
 
             Log.debug?.message("Trip = \(newTrip)")
 
-            if let vc = self.presentingViewController as? UINavigationController {
+            delegate?.didCreateTrip(self)
 
-                if let platesViewController = R.storyboard.main.platesViewController() {
-                    platesViewController.trip = newTrip
-                    vc.pushViewController(platesViewController, animated: true)
-                }
-
-                dismiss(animated: true)
-            }
+//            if let vc = self.presentingViewController as? UINavigationController {
+//
+//                if let platesViewController = R.storyboard.main.platesViewController() {
+//                    platesViewController.trip = newTrip
+//                    vc.pushViewController(platesViewController, animated: true)
+//                }
+//
+//                dismiss(animated: true)
+//            }
 
             //TOD: alert with action about creation fail, that dismisses vc
         }
@@ -59,15 +68,17 @@ class CreateTripViewController: UIViewController {
 
 extension CreateTripViewController : UITextFieldDelegate {
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if (textField.text?.characters.count)! > 0 {
-            tripName = textField.text
-            goButton.isUserInteractionEnabled = true
-        }
-    }
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text, text.characters.count > 1 || string.characters.count > 0 {
+            goButton.isEnabled = true
+        } else {
+            goButton.isEnabled = false
+        }
         return true
     }
 }

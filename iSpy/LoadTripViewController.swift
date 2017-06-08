@@ -9,21 +9,25 @@
 import UIKit
 import Rswift
 import Require
+import Realm
 
 class LoadTripViewController: UIViewController {
 
     @IBOutlet weak var tripTableView: UITableView!
     @IBOutlet weak var closeButton: UIButton!
 
-    fileprivate var trips = TripService.defaultService.fetchAllTrips().sorted(byKeyPath: "isCurrentTrip", ascending: false).map { LoadTripCellModel(trip: $0) }
+    fileprivate var trips = TripService.defaultService.fetchAllTrips().map { LoadTripCellModel(trip: $0) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tripTableView.delegate = self
-        tripTableView.dataSource = self
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        tripTableView.delegate = self
+        tripTableView.dataSource = self
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -56,4 +60,12 @@ extension LoadTripViewController : UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension LoadTripViewController : UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let currentTrip = TripService.defaultService.fetchCurrentTrip()
+        DataManager.defaultRealm().beginWrite()
+        trips[indexPath.row].trip.isCurrentTrip = true
+        currentTrip?.isCurrentTrip = false
+        _ = DataManager.safeWrite()
+    }
 }

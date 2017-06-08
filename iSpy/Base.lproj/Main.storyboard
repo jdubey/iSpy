@@ -1,77 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Xsw-2u-Y4e">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pht-5D-BRv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIA-3e-CZO">
-                                <rect key="frame" x="151.5" y="419" width="73" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="B1F-nF-rvY"/>
-                                </constraints>
-                                <state key="normal" title="!Load Trip!"/>
-                                <connections>
-                                    <segue destination="Ztz-Sr-KF3" kind="presentation" identifier="LoadTripViewController" id="3un-wo-ItY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imy-kj-x25">
-                                <rect key="frame" x="153" y="245" width="70" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="8KW-rj-yaR"/>
-                                </constraints>
-                                <state key="normal" title="!New Trip!"/>
-                                <connections>
-                                    <segue destination="Xt9-i9-yn8" kind="presentation" identifier="CreateTripViewController" id="lmQ-Um-DON"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sj-P8-0fV">
-                                <rect key="frame" x="151.5" y="318" width="71" height="30"/>
-                                <state key="normal" title="!Continue!"/>
-                                <connections>
-                                    <segue destination="5gx-N1-ffi" kind="show" identifier="PlatesViewController" id="eog-h0-pDB"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="vIA-3e-CZO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ILh-db-PlR"/>
-                            <constraint firstItem="7sj-P8-0fV" firstAttribute="top" secondItem="imy-kj-x25" secondAttribute="bottom" constant="43" id="ImO-Mk-lF3"/>
-                            <constraint firstItem="imy-kj-x25" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="181" id="b43-Gb-Ixe"/>
-                            <constraint firstItem="7sj-P8-0fV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sQG-Ak-jHx"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vIA-3e-CZO" secondAttribute="bottom" constant="218" id="w0I-7m-csA"/>
-                            <constraint firstItem="imy-kj-x25" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wP9-ss-eLC"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="R12-Qr-ALb"/>
-                    <connections>
-                        <outlet property="continueTripButton" destination="7sj-P8-0fV" id="YnF-xR-a13"/>
-                        <outlet property="loadTripButton" destination="vIA-3e-CZO" id="hUx-H8-FnE"/>
-                        <outlet property="newTripButton" destination="imy-kj-x25" id="o8q-eK-I83"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1183" y="-99"/>
-        </scene>
-        <!--Create Trip View Controller-->
+        <!--New-->
         <scene sceneID="Fyq-Xg-RH8">
             <objects>
                 <viewController storyboardIdentifier="CreateTripViewController" id="Xt9-i9-yn8" customClass="CreateTripViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,6 +55,7 @@
                             <constraint firstItem="x5g-Bu-Ae8" firstAttribute="top" secondItem="OOz-VK-T8q" secondAttribute="bottom" constant="8" id="xWi-ci-Xkg"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="New" image="yellow_tab" id="Vad-nV-afJ"/>
                     <connections>
                         <outlet property="goButton" destination="Vkx-N3-Fym" id="g5N-Cd-FgC"/>
                         <outlet property="nameTripLabel" destination="OOz-VK-T8q" id="7CD-yB-weV"/>
@@ -126,7 +66,63 @@
             </objects>
             <point key="canvasLocation" x="2028" y="-824"/>
         </scene>
-        <!--Plates View Controller-->
+        <!--Login View Controller-->
+        <scene sceneID="8Yf-Nz-ymJ">
+            <objects>
+                <viewController id="Pht-5D-BRv" customClass="LoginViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aOK-sQ-u98"/>
+                        <viewControllerLayoutGuide type="bottom" id="RZX-OT-3vD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SFa-yg-WyL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXk-ey-Daj">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AwI-5T-vXa">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4r-x4-wuI">
+                                                <rect key="frame" x="0.0" y="0.0" width="329" height="44"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMf-wN-gKh">
+                                                <rect key="frame" x="329" y="0.0" width="46" height="44"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="AwI-5T-vXa" firstAttribute="leading" secondItem="hXk-ey-Daj" secondAttribute="leading" id="Yod-q6-p9E"/>
+                                    <constraint firstAttribute="trailing" secondItem="AwI-5T-vXa" secondAttribute="trailing" id="brn-Iw-DeC"/>
+                                    <constraint firstItem="AwI-5T-vXa" firstAttribute="top" secondItem="hXk-ey-Daj" secondAttribute="top" id="eh7-PZ-tB1"/>
+                                    <constraint firstAttribute="height" constant="44" id="rYg-eR-Yoc"/>
+                                    <constraint firstAttribute="bottom" secondItem="AwI-5T-vXa" secondAttribute="bottom" id="w26-Wh-cox"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RZX-OT-3vD" firstAttribute="top" secondItem="hXk-ey-Daj" secondAttribute="bottom" id="eBW-R0-xiy"/>
+                            <constraint firstAttribute="trailing" secondItem="hXk-ey-Daj" secondAttribute="trailing" id="iQw-e4-uqP"/>
+                            <constraint firstItem="hXk-ey-Daj" firstAttribute="leading" secondItem="SFa-yg-WyL" secondAttribute="leading" id="pJ1-0v-DcN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stackView" destination="AwI-5T-vXa" id="FHL-e0-nin"/>
+                        <outlet property="tripButton" destination="k4r-x4-wuI" id="L9x-iP-rYj"/>
+                        <outlet property="tripsButton" destination="MMf-wN-gKh" id="vu8-sL-zgD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrf-Zw-HUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485.5999999999999" y="-18.440779610194905"/>
+        </scene>
+        <!--Trip-->
         <scene sceneID="PDJ-YJ-Hn2">
             <objects>
                 <viewController storyboardIdentifier="PlatesViewController" id="5gx-N1-ffi" customClass="PlatesViewController" customModule="iSpy" customModuleProvider="target" sceneMemberID="viewController">
@@ -139,14 +135,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xui-6k-T8L">
-                                <rect key="frame" x="16" y="171" width="343" height="423"/>
+                                <rect key="frame" x="16" y="127" width="343" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlatesTableViewCell" rowHeight="200" id="Oaq-me-Pc3" customClass="PlatesTableViewCell" customModule="iSpy" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlatesTableViewCell" id="Oaq-me-Pc3" customClass="PlatesTableViewCell" customModule="iSpy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oaq-me-Pc3" id="djN-1l-Coi">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kq-dQ-Mft">
@@ -160,12 +157,15 @@
                                                 </label>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ENs-G7-t8e">
                                                     <rect key="frame" x="0.0" y="58" width="343" height="131.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="131.5" id="DwD-qm-Mb6"/>
+                                                    </constraints>
                                                 </mapView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60n-LA-knR">
                                                     <rect key="frame" x="275" y="10" width="60" height="30"/>
                                                     <state key="normal" title="!Expand!"/>
                                                     <connections>
-                                                        <action selector="didTapExpandButton:" destination="Oaq-me-Pc3" eventType="touchUpInside" id="AAa-qn-ddi"/>
+                                                        <action selector="didTapExpandButton:" destination="Oaq-me-Pc3" eventType="touchUpInside" id="Awe-ce-wmJ"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bns-MA-hjl">
@@ -184,9 +184,11 @@
                                                 <constraint firstItem="60n-LA-knR" firstAttribute="trailing" secondItem="djN-1l-Coi" secondAttribute="trailingMargin" id="yDK-s6-pkR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="expandButton" destination="60n-LA-knR" id="irL-5x-H1O"/>
                                             <outlet property="mapView" destination="ENs-G7-t8e" id="5Xd-50-OXw"/>
+                                            <outlet property="mapViewHeightConstraint" destination="DwD-qm-Mb6" id="i5V-bu-3tr"/>
                                             <outlet property="nameLabel" destination="5Kq-dQ-Mft" id="0SP-Uh-CWi"/>
                                             <outlet property="plateImageView" destination="bns-MA-hjl" id="1bZ-yb-cO9"/>
                                         </connections>
@@ -194,7 +196,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Xui-6k-T8L" firstAttribute="leading" secondItem="42b-iX-f8X" secondAttribute="leadingMargin" id="CLH-6h-K5k"/>
                             <constraint firstItem="Xui-6k-T8L" firstAttribute="trailing" secondItem="42b-iX-f8X" secondAttribute="trailingMargin" id="FFN-bm-skt"/>
@@ -202,13 +204,14 @@
                             <constraint firstItem="h0k-Ay-Vyx" firstAttribute="top" secondItem="Xui-6k-T8L" secondAttribute="bottom" constant="73" id="SOo-B7-I0Y"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Trip" image="green_tab" id="bkg-1M-1Rg"/>
                     <connections>
                         <outlet property="platesTableView" destination="Xui-6k-T8L" id="UmJ-4H-LCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9h-KY-CuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="-99.400299850074973"/>
+            <point key="canvasLocation" x="2967.1999999999998" y="-99.400299850074973"/>
         </scene>
         <!--Load Trip View Controller-->
         <scene sceneID="Uqn-GG-CRs">
@@ -222,16 +225,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-ae-z6x">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-ae-z6x">
                                 <rect key="frame" x="0.0" y="109" width="375" height="558"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="558" id="dam-4o-KsH"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadTripCell" id="J97-UP-n0k" customClass="LoadTripCell" customModule="iSpy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J97-UP-n0k" id="lJA-EB-fLj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ACj-DU-rwB">
@@ -270,12 +275,16 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="IIh-ae-z6x" firstAttribute="leading" secondItem="dIG-2E-KIh" secondAttribute="leading" id="159-EX-wh0"/>
+                            <constraint firstAttribute="trailing" secondItem="IIh-ae-z6x" secondAttribute="trailing" id="BqQ-Dl-qE0"/>
+                            <constraint firstItem="wLJ-6s-WnH" firstAttribute="top" secondItem="IIh-ae-z6x" secondAttribute="bottom" id="DO8-0b-Rbm"/>
                             <constraint firstItem="4fS-1d-4NI" firstAttribute="top" secondItem="eMo-NJ-ZyT" secondAttribute="bottom" constant="8" id="Tmf-Ya-Tf3"/>
                             <constraint firstItem="4fS-1d-4NI" firstAttribute="trailing" secondItem="dIG-2E-KIh" secondAttribute="trailingMargin" id="tXN-gY-iR2"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" image="red_tab" id="wUq-Mq-UFf"/>
                     <connections>
                         <outlet property="closeButton" destination="4fS-1d-4NI" id="WkU-cU-zGd"/>
                         <outlet property="tripTableView" destination="IIh-ae-z6x" id="hS5-tO-ARv"/>
@@ -285,23 +294,10 @@
             </objects>
             <point key="canvasLocation" x="2028" y="656.22188905547227"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hny-LD-vPm">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xsw-2u-Y4e" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zIq-75-agu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="i3Y-bC-ycI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fne-oq-6t9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="452" y="-99"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="green_tab" width="76" height="76"/>
+        <image name="red_tab" width="76" height="76"/>
+        <image name="yellow_tab" width="76" height="76"/>
+    </resources>
 </document>
