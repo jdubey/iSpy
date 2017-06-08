@@ -1,6 +1,6 @@
 ideas:
 
-Expanding table cell shows map for that plate
+Expanding table cell shows map for that plate.  This is where you can "unfind" as well.  "Are you sure?"
 Overall map has custom pin view
 Found plates turn from b/w to color
 profile with picture
