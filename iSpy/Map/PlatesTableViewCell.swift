@@ -8,6 +8,11 @@
 
 import UIKit
 import MapKit
+import CleanroomLogger
+
+protocol PlatesTableViewCellDelegate: class {
+    func plateCellExpansionDidChange(_ cell: PlatesTableViewCell)
+}
 
 class PlatesTableViewCell: UITableViewCell {
 
@@ -17,17 +22,47 @@ class PlatesTableViewCell: UITableViewCell {
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var mapViewHeightConstraint: NSLayoutConstraint!
 
-    var model: PlatesTableViewCellModel? {
+    weak var delegate: PlatesTableViewCellDelegate?
+
+    var imageName: String? {
         didSet {
-            if let name = model?.licensePlate?.name {
-                nameLabel.text = name
-                var imageName = name + "_bw"
-                if let found = model?.found, found == true {
-                    imageName = name
-                    expandButton.isHidden = false
-                    expandButton.isEnabled = true
-                }
-                plateImageView.image = UIImage(named:imageName)
+            if imageName != nil {
+                plateImageView.image = UIImage(named:imageName!)
+            }
+        }
+    }
+
+    var isExpanded: Bool = false {
+        didSet {
+            adjustCellHeight()
+        }
+    }
+
+    var found = false {
+        didSet {
+            if found {
+                expandButton.isHidden = false
+                expandButton.isEnabled = true
+            } else {
+                expandButton.isHidden = true
+                expandButton.isEnabled = false
+            }
+        }
+    }
+
+    var name: String? {
+        didSet {
+            nameLabel.text = name
+        }
+    }
+
+    var location: Location? {
+        didSet {
+            if let newLocation = location {
+            mapView.centerCoordinate = CLLocationCoordinate2D(latitude: newLocation.latitude, longitude: newLocation.longitude)
+            let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
+            annotation.backgroundColor = .green
+            mapView.addAnnotation(annotation)
             }
         }
     }
@@ -45,13 +80,13 @@ class PlatesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        if let name = model?.licensePlate?.name, selected == true {
+        if let name = name, selected == true {
             plateImageView.fade(toImageNamed: name, duration: 0.2, completion: nil)
         }
     }
 
-    func setUpMapView() {
-        if let location = model?.licensePlate?.location {
+    private func setUpMapView() {
+        if let location = location {
             mapView.centerCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
             annotation.backgroundColor = .green
@@ -59,27 +94,23 @@ class PlatesTableViewCell: UITableViewCell {
         }
     }
 
-    // MARK: - Actions
-    @IBAction func didTapExpandButton(_ sender: Any) {
-        guard let model = model else {
-            return
-        }
+    private func adjustCellHeight() {
 
-        if !model.isExpanded {
-//            setUpMapView()
+        if isExpanded {
             mapViewHeightConstraint.constant = 131.5
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.layoutIfNeeded()
-//            })
-//            let rect = self.frame
-//            let newRect = CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width, height: rect.height + 131.5)
-//            self.frame = newRect
         } else {
             mapViewHeightConstraint.constant = 0
         }
 
         updateConstraints()
+    }
 
-        model.isExpanded = !model.isExpanded
+    // MARK: - Actions
+    @IBAction func didTapExpandButton(_ sender: Any) {
+
+        adjustCellHeight()
+
+        delegate?.plateCellExpansionDidChange(self)
+
     }
 }

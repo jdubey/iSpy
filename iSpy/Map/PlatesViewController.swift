@@ -31,13 +31,17 @@ class PlatesViewController: UIViewController {
             plateModels = plates.map ({ PlatesTableViewCellModel($0) })
         }
 
-        plateModels.forEach { model in
-            model.delegate = self
-        }
+        configureTableView()
 
+    }
+
+    private func configureTableView() {
         platesTableView.delegate = self
         platesTableView.dataSource = self
         platesTableView.tableFooterView = UIView()
+
+        platesTableView.rowHeight = UITableViewAutomaticDimension
+        platesTableView.estimatedRowHeight = 50
     }
 }
 
@@ -55,8 +59,16 @@ extension PlatesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.platesTableViewCell.identifier) as? PlatesTableViewCell).require()
 
-        cell.model = plateModels[indexPath.row]
+        configure(cell, with: plateModels[indexPath.row])
         return cell
+    }
+
+    private func configure(_ cell: PlatesTableViewCell, with model: PlatesTableViewCellModel) {
+        cell.delegate = self
+        cell.name = model.licensePlate.name
+        cell.isExpanded = model.isExpanded
+        cell.found = model.found
+        cell.imageName = model.imageName
     }
 }
 
@@ -64,7 +76,7 @@ extension PlatesViewController: UITableViewDataSource {
 extension PlatesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let plateModel = plateModels[indexPath.row]
+        var plateModel = plateModels[indexPath.row]
             let location = LocationManager.defaultManager().currentLocation()
             plateModel.location = location
             plateModel.found = true
@@ -72,18 +84,17 @@ extension PlatesViewController: UITableViewDelegate {
             tableView.reloadRows(at: [indexPath], with: .fade)
 
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         if plateModels[indexPath.row].isExpanded {
-            return 200
-        }
-        return 50
-    }
 }
 
-// MARK: - PlatesTableViewCellModelDelegate
-extension PlatesViewController: PlatesTableViewCellModelDelegate {
-    func plateCellModelExpansionDidChange(_ model: PlatesTableViewCellModel) {
+// MARK: - PlatesTableViewCellDelegate
+extension PlatesViewController: PlatesTableViewCellDelegate {
+    func plateCellExpansionDidChange(_ cell: PlatesTableViewCell) {
+
+        if let index = platesTableView.indexPath(for: cell)?.row {
+            plateModels[index].isExpanded = !plateModels[index].isExpanded
+            cell.isExpanded = plateModels[index].isExpanded
+        }
+
         platesTableView.beginUpdates()
         platesTableView.endUpdates()
     }

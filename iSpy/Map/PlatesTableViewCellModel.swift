@@ -9,54 +9,50 @@
 import UIKit
 import MapKit
 
-protocol PlatesTableViewCellModelDelegate: class {
-    func plateCellModelExpansionDidChange(_ model: PlatesTableViewCellModel)
-}
+//protocol PlatesTableViewCellModelDelegate: class {
+//    func plateCellModelExpansionDidChange(_ model: PlatesTableViewCellModel)
+//}
 
-class PlatesTableViewCellModel: NSObject {
+struct PlatesTableViewCellModel {
 
-    var licensePlate: LicensePlate?
-    weak var delegate: PlatesTableViewCellModelDelegate?
+    var licensePlate: LicensePlate
 
-    var isExpanded = false {
-        didSet {
-            delegate?.plateCellModelExpansionDidChange(self)
-        }
-    }
+    var isExpanded = false
 
     let realm = DataManager.defaultRealm()
+
     var found: Bool {
         get {
-            if let found = self.licensePlate?.found {
-                return found
-            }
-            return false
+            return self.licensePlate.found
         }
         set {
             realm.beginWrite()
-            licensePlate?.found = newValue
+            licensePlate.found = newValue
             _ = DataManager.safeWrite()
         }
     }
 
     var location: Location? {
         get {
-            return self.licensePlate?.location
+            return self.licensePlate.location
         }
         set {
             realm.beginWrite()
-            licensePlate?.location = newValue
+            licensePlate.location = newValue
             _ = DataManager.safeWrite()
         }
     }
 
-    convenience init(_ plate: LicensePlate?) {
-        self.init()
-        licensePlate = plate
+    var imageName: String {
+        if found {
+            return licensePlate.name
+        } else {
+            return licensePlate.name + "_bw"
+        }
     }
 
-}
-
-extension PlatesTableViewCellModel : MKMapViewDelegate {
+    init(_ plate: LicensePlate) {
+        licensePlate = plate
+    }
 
 }
