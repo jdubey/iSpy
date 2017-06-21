@@ -69,6 +69,7 @@ extension PlatesViewController: UITableViewDataSource {
         cell.isExpanded = model.isExpanded
         cell.found = model.found
         cell.imageName = model.imageName
+        cell.location = model.location
     }
 }
 
@@ -77,12 +78,9 @@ extension PlatesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var plateModel = plateModels[indexPath.row]
-            let location = LocationManager.defaultManager().currentLocation()
-            plateModel.location = location
-            plateModel.found = true
-            Log.debug?.message("License plate = \(String(describing: plateModel.licensePlate))")
-            tableView.reloadRows(at: [indexPath], with: .fade)
-
+        let location = LocationManager.defaultManager().currentLocation()
+        plateModel.location = location
+        plateModel.found = true
     }
 }
 

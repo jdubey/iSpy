@@ -40,13 +40,7 @@ class PlatesTableViewCell: UITableViewCell {
 
     var found = false {
         didSet {
-            if found {
-                expandButton.isHidden = false
-                expandButton.isEnabled = true
-            } else {
-                expandButton.isHidden = true
-                expandButton.isEnabled = false
-            }
+            showButton(found)
         }
     }
 
@@ -59,45 +53,55 @@ class PlatesTableViewCell: UITableViewCell {
     var location: Location? {
         didSet {
             if let newLocation = location {
-            mapView.centerCoordinate = CLLocationCoordinate2D(latitude: newLocation.latitude, longitude: newLocation.longitude)
-            let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
-            annotation.backgroundColor = .green
-            mapView.addAnnotation(annotation)
+                setUpMapView(newLocation)
             }
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        expandButton.isHidden = true
-        expandButton.isEnabled = false
         self.contentView.backgroundColor = .white
         self.backgroundColor = .white
         self.selectionStyle = .none
-
-        setUpMapView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        if let name = name, selected == true {
+        Log.debug?.message("\(String(describing: name?.description)) isSelected = \(selected)")
+
+        if let name = name, found == false, selected == true {
             plateImageView.fade(toImageNamed: name, duration: 0.2, completion: nil)
+            showButton(true)
         }
     }
 
-    private func setUpMapView() {
-        if let location = location {
-            mapView.centerCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
-            annotation.backgroundColor = .green
-            mapView.addAnnotation(annotation)
+    private func setUpMapView(_ location: Location) {
+        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+        let region = MKCoordinateRegionMake(mapView.centerCoordinate, span)
+
+        let regionThatFits = mapView.regionThatFits(region)
+        mapView.region = regionThatFits
+        let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
+        annotation.backgroundColor = .green
+        mapView.addAnnotation(annotation)
+    }
+
+    private func showButton(_ shouldShow: Bool) {
+        Log.debug?.message("Should show \(String(describing: name)) = \(shouldShow)")
+        if shouldShow {
+            expandButton.isHidden = false
+            expandButton.isEnabled = true
+        } else {
+            expandButton.isHidden = true
+            expandButton.isEnabled = false
         }
     }
 
     private func adjustCellHeight() {
 
         if isExpanded {
-            mapViewHeightConstraint.constant = 131.5
+            mapViewHeightConstraint.constant = 250
         } else {
             mapViewHeightConstraint.constant = 0
         }
