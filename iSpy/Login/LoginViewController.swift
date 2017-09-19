@@ -30,17 +30,8 @@ class LoginViewController: UIViewController {
         stackView.distribution = .fillEqually
         stackView.alignment = .center
 
-        let mainStoryBoard = R.storyboard.main
-        let platesViewController = mainStoryBoard.platesViewController()
-        viewControllers.append(platesViewController)
-        viewControllers.append(mainStoryBoard.loadTripViewController())
-
+        configureViewControllers()
         configureButtuns()
-
-        if !shouldShowCreateTrip() {
-            platesViewController?.trip = TripService.defaultService.fetchCurrentTrip()
-            showViewControllerAt(index: ButtonTag.trip.rawValue)
-        }
 
     }
 
@@ -54,13 +45,13 @@ class LoginViewController: UIViewController {
     }
 
     private func showCreateTrip() {
-        if let createTripViewController = R.storyboard.main.createTripViewController() {
-            createTripViewController.delegate = self
-            addChildViewController(createTripViewController)
-            createTripViewController.view.frame = view.frame
-            view.addSubview(createTripViewController.view)
-            createTripViewController.didMove(toParentViewController: self)
-        }
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let createTripViewController = (mainStoryBoard.instantiateViewController(withIdentifier: "CreateTripViewController") as? CreateTripViewController).require()
+        createTripViewController.delegate = self
+        addChildViewController(createTripViewController)
+        createTripViewController.view.frame = view.frame
+        view.addSubview(createTripViewController.view)
+        createTripViewController.didMove(toParentViewController: self)
     }
 
     private func configureButtuns() {
@@ -71,6 +62,20 @@ class LoginViewController: UIViewController {
 
         tripButton.addTarget(self, action: #selector(selectViewController(_:)), for: .touchUpInside)
         tripsButton.addTarget(self, action: #selector(selectViewController(_:)), for: .touchUpInside)
+    }
+
+    private func configureViewControllers() {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let platesViewController = (mainStoryBoard.instantiateViewController(withIdentifier: "PlatesViewController") as? PlatesViewController).require()
+        viewControllers.append(platesViewController)
+
+        let loadTripViewController = (mainStoryBoard.instantiateViewController(withIdentifier: "LoadTripViewController") as? LoadTripViewController).require()
+        viewControllers.append(loadTripViewController)
+
+        if !shouldShowCreateTrip() {
+            platesViewController.trip = TripService.defaultService.fetchCurrentTrip()
+            showViewControllerAt(index: ButtonTag.trip.rawValue)
+        }
     }
 
     fileprivate func showViewControllerAt(index: Int) {
@@ -86,11 +91,11 @@ class LoginViewController: UIViewController {
         if childViewControllers.count == 1 {
 
             let vc = childViewControllers[0]
-            vc.willMove(toParentViewController: nil)
+            vc.willMove(toParentViewController: self)
 
                 viewController.view.alpha = 0.0
                 viewController.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - self.stackView.frame.height)
-                self.addChildViewController(viewController)
+
                 //        view.insertSubview(viewController.view, at: 0)
                 self.view.addSubview(viewController.view)
                 viewController.didMove(toParentViewController: self)
@@ -104,8 +109,10 @@ class LoginViewController: UIViewController {
 
         } else {
 
-            viewController.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - self.stackView.frame.height)
             self.addChildViewController(viewController)
+            viewController.willMove(toParentViewController: self)
+            viewController.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - self.stackView.frame.height)
+
             //        view.insertSubview(viewController.view, at: 0)
             self.view.addSubview(viewController.view)
             viewController.didMove(toParentViewController: self)

@@ -16,9 +16,8 @@ protocol Animations {
 extension UIImageView: Animations {
     func fade(toImageNamed name: String, duration: Double, completion: ((Bool) -> Void)?) {
         let toImage = UIImage(named: name)
-        UIView.transition(with: self, duration: 3.0, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: self, duration: 0.5, options: .transitionCrossDissolve, animations: {
             self.image = toImage
         }, completion: completion)
-
     }
 }

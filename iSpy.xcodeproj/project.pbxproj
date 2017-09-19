@@ -10,8 +10,11 @@
 		393CCAC757B38307B5F05A8F /* Pods_iSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CB84A6E0B160C3C0BE6127 /* Pods_iSpy.framework */; };
 		B4ED68C25738095482C107A6 /* Pods_iSpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE33B358D0A789DA151A1C94 /* Pods_iSpyTests.framework */; };
 		B5B6F458C770D7553320E643 /* Pods_iSpyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC854C11DFBCD5CD0FE0433F /* Pods_iSpyUITests.framework */; };
-		D076E0AF1EC4D3A100FBCC2F /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */; };
-		D076E0B01EC4D3A100FBCC2F /* CleanroomLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D02FBD101F2B7466009CC1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD0E1F2B7466009CC1CB /* Main.storyboard */; };
+		D02FBD131F2B749B009CC1CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD111F2B749B009CC1CB /* LaunchScreen.storyboard */; };
+		D02FBD181F2B7B62009CC1CB /* LoadTripTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */; };
+		D02FBD1B1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD1A1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib */; };
+		D04F00AD1F7170FE007356AA /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5A54A1F716B9D009A4A51 /* SpeedView.swift */; };
 		D076E0B31EC5AEFA00FBCC2F /* LoadTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */; };
 		D076E0B51EC5BB4800FBCC2F /* LoadTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */; };
 		D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */; };
@@ -20,10 +23,10 @@
 		D076E0C01EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0BF1EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift */; };
 		D076E0C21EC5F69400FBCC2F /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */; };
 		D076E1071ECA044000FBCC2F /* UIImageView+Protcols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E1061ECA044000FBCC2F /* UIImageView+Protcols.swift */; };
+		D0AB0BF81F03F70700296C55 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0AB0BF71F03F70700296C55 /* Settings.bundle */; };
 		D0D89F631EC1C52C005C3E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */; };
 		D0D89F681EC1C52C005C3E83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F661EC1C52C005C3E83 /* Main.storyboard */; };
 		D0D89F6A1EC1C52C005C3E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F691EC1C52C005C3E83 /* Assets.xcassets */; };
-		D0D89F6D1EC1C52C005C3E83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F6B1EC1C52C005C3E83 /* LaunchScreen.storyboard */; };
 		D0D89F781EC1C52C005C3E83 /* iSpyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F771EC1C52C005C3E83 /* iSpyTests.swift */; };
 		D0D89F831EC1C52C005C3E83 /* iSpyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F821EC1C52C005C3E83 /* iSpyUITests.swift */; };
 		D0D89F9F1EC1CAFE005C3E83 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F911EC1CAFE005C3E83 /* LoginViewController.swift */; };
@@ -38,7 +41,6 @@
 		D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F9D1EC1CAFE005C3E83 /* Trip.swift */; };
 		D0D89FA91EC1CAFE005C3E83 /* TripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F9E1EC1CAFE005C3E83 /* TripService.swift */; };
 		D0D89FB21EC1CD44005C3E83 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D0D89FB11EC1CD44005C3E83 /* .swiftlint.yml */; };
-		D0D89FB81EC1D4D3005C3E83 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FB71EC1D4D3005C3E83 /* R.generated.swift */; };
 		D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FBB1EC1ED2B005C3E83 /* CreateTripViewController.swift */; };
 		D0D89FC91EC1F777005C3E83 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FBF1EC1F777005C3E83 /* CALayerExtension.swift */; };
 		D0D89FCA1EC1F777005C3E83 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC01EC1F777005C3E83 /* CollectionExtensions.swift */; };
@@ -51,6 +53,9 @@
 		D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */; };
 		D0D89FD21EC1F777005C3E83 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FC81EC1F777005C3E83 /* UIViewExtensions.swift */; };
 		D0D89FD51EC204FC005C3E83 /* FlipTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FD41EC204FC005C3E83 /* FlipTransitionDelegate.swift */; };
+		D0DA8BF61EFC0E31003352B2 /* TripManagementMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA8BF51EFC0E31003352B2 /* TripManagementMapView.swift */; };
+		D0DA8BF81EFC0F07003352B2 /* TripManagementMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA8BF71EFC0F07003352B2 /* TripManagementMapViewModel.swift */; };
+		D0F5A54D1F716BCE009A4A51 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5A54C1F716BCE009A4A51 /* NumberExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,20 +75,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		D076E0B11EC4D3A100FBCC2F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D076E0B01EC4D3A100FBCC2F /* CleanroomLogger.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		184EF4D938A1C9D940B6502C /* Pods-iSpy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpy.release.xcconfig"; path = "Pods/Target Support Files/Pods-iSpy/Pods-iSpy.release.xcconfig"; sourceTree = "<group>"; };
 		36CB84A6E0B160C3C0BE6127 /* Pods_iSpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +83,10 @@
 		6603BCE7BD0234E7F8D15158 /* Pods-iSpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyTests/Pods-iSpyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		75FE383DB17944778D2FDF26 /* Pods-iSpyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyUITests/Pods-iSpyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC854C11DFBCD5CD0FE0433F /* Pods_iSpyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomLogger.framework; path = Carthage/Build/iOS/CleanroomLogger.framework; sourceTree = "<group>"; };
+		D02FBD0F1F2B7466009CC1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D02FBD121F2B749B009CC1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripTableHeaderView.swift; sourceTree = "<group>"; };
+		D02FBD1A1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadTripTableHeaderView.xib; sourceTree = "<group>"; };
 		D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripViewController.swift; sourceTree = "<group>"; };
 		D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCell.swift; sourceTree = "<group>"; };
 		D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCellModel.swift; sourceTree = "<group>"; };
@@ -101,12 +95,12 @@
 		D076E0BF1EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatesTableViewCellModel.swift; sourceTree = "<group>"; };
 		D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		D076E1061ECA044000FBCC2F /* UIImageView+Protcols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Protcols.swift"; sourceTree = "<group>"; };
+		D0AB0BF71F03F70700296C55 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D0D89F5F1EC1C52C005C3E83 /* iSpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D89F671EC1C52C005C3E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D0D89F691EC1C52C005C3E83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = iSpy/Assets.xcassets; sourceTree = "<group>"; };
-		D0D89F6C1EC1C52C005C3E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D0D89F6E1EC1C52C005C3E83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = iSpy/Info.plist; sourceTree = "<group>"; };
+		D0D89F691EC1C52C005C3E83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0D89F6E1EC1C52C005C3E83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0D89F731EC1C52C005C3E83 /* iSpyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iSpyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D89F771EC1C52C005C3E83 /* iSpyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iSpyTests.swift; sourceTree = "<group>"; };
 		D0D89F791EC1C52C005C3E83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,7 +119,6 @@
 		D0D89F9D1EC1CAFE005C3E83 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		D0D89F9E1EC1CAFE005C3E83 /* TripService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripService.swift; path = Model/TripService.swift; sourceTree = "<group>"; };
 		D0D89FB11EC1CD44005C3E83 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		D0D89FB71EC1D4D3005C3E83 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D0D89FBB1EC1ED2B005C3E83 /* CreateTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 		D0D89FBF1EC1F777005C3E83 /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayerExtension.swift; path = Extensions/CALayerExtension.swift; sourceTree = "<group>"; };
 		D0D89FC01EC1F777005C3E83 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionExtensions.swift; path = Extensions/CollectionExtensions.swift; sourceTree = "<group>"; };
@@ -138,6 +131,11 @@
 		D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = Extensions/UIImageExtensions.swift; sourceTree = "<group>"; };
 		D0D89FC81EC1F777005C3E83 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
 		D0D89FD41EC204FC005C3E83 /* FlipTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipTransitionDelegate.swift; sourceTree = "<group>"; };
+		D0DA8BF51EFC0E31003352B2 /* TripManagementMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManagementMapView.swift; sourceTree = "<group>"; };
+		D0DA8BF71EFC0F07003352B2 /* TripManagementMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManagementMapViewModel.swift; sourceTree = "<group>"; };
+		D0F5A54A1F716B9D009A4A51 /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
+		D0F5A54B1F716BB4009A4A51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0F5A54C1F716BCE009A4A51 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		DE33B358D0A789DA151A1C94 /* Pods_iSpyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A0CF1F8399E66FF8BC766D /* Pods-iSpyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyTests/Pods-iSpyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,7 +147,6 @@
 			files = (
 				393CCAC757B38307B5F05A8F /* Pods_iSpy.framework in Frameworks */,
 				D076E0B91EC5C92300FBCC2F /* MapKit.framework in Frameworks */,
-				D076E0AF1EC4D3A100FBCC2F /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +193,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D02FBD141F2B74BD009CC1CB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D02FBD111F2B749B009CC1CB /* LaunchScreen.storyboard */,
+				D02FBD0E1F2B7466009CC1CB /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D02FBD191F2B7B6B009CC1CB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */,
+				D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */,
+				D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */,
+				D02FBD1A1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		D076E0BC1EC5CA7800FBCC2F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,20 +229,25 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		D094C9061F1F589100D2DE79 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D0D89F661EC1C52C005C3E83 /* Main.storyboard */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		D0D89F561EC1C52C005C3E83 = {
 			isa = PBXGroup;
 			children = (
-				D076E0AE1EC4D3A100FBCC2F /* CleanroomLogger.framework */,
+				D0AB0BF71F03F70700296C55 /* Settings.bundle */,
 				D0D89F611EC1C52C005C3E83 /* iSpy */,
-				D0D89F661EC1C52C005C3E83 /* Main.storyboard */,
-				D0D89F691EC1C52C005C3E83 /* Assets.xcassets */,
-				D0D89F6B1EC1C52C005C3E83 /* LaunchScreen.storyboard */,
-				D0D89F6E1EC1C52C005C3E83 /* Info.plist */,
 				D0D89F761EC1C52C005C3E83 /* iSpyTests */,
 				D0D89F811EC1C52C005C3E83 /* iSpyUITests */,
 				D0D89F601EC1C52C005C3E83 /* Products */,
 				34E38D5D959E29B7B73883A6 /* Pods */,
 				BD8D1628C83A59C717693511 /* Frameworks */,
+				D094C9061F1F589100D2DE79 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +264,8 @@
 		D0D89F611EC1C52C005C3E83 /* iSpy */ = {
 			isa = PBXGroup;
 			children = (
+				D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */,
+				D0D89F691EC1C52C005C3E83 /* Assets.xcassets */,
 				D076E1051ECA03CD00FBCC2F /* Protocols */,
 				D076E0BC1EC5CA7800FBCC2F /* Services */,
 				D0D89FBD1EC1EE94005C3E83 /* UI */,
@@ -249,6 +273,7 @@
 				D0D89FBE1EC1F763005C3E83 /* Extensions */,
 				D0D89F981EC1CAFE005C3E83 /* Model */,
 				D0D89FAE1EC1CD0D005C3E83 /* Supporting Files */,
+				D0D89F6E1EC1C52C005C3E83 /* Info.plist */,
 			);
 			path = iSpy;
 			sourceTree = "<group>";
@@ -304,7 +329,6 @@
 		D0D89F981EC1CAFE005C3E83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */,
 				D0D89F991EC1CAFE005C3E83 /* BaseObject.swift */,
 				D0D89F9A1EC1CAFE005C3E83 /* LicensePlate.swift */,
 				D0D89F9B1EC1CAFE005C3E83 /* Location.swift */,
@@ -317,7 +341,6 @@
 		D0D89FAE1EC1CD0D005C3E83 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D0D89FB71EC1D4D3005C3E83 /* R.generated.swift */,
 				D0D89FB11EC1CD44005C3E83 /* .swiftlint.yml */,
 			);
 			name = "Supporting Files";
@@ -326,10 +349,11 @@
 		D0D89FBA1EC1ED02005C3E83 /* Trip Management */ = {
 			isa = PBXGroup;
 			children = (
+				D02FBD191F2B7B6B009CC1CB /* Cells */,
 				D0D89FBB1EC1ED2B005C3E83 /* CreateTripViewController.swift */,
 				D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */,
-				D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */,
-				D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */,
+				D0DA8BF51EFC0E31003352B2 /* TripManagementMapView.swift */,
+				D0DA8BF71EFC0F07003352B2 /* TripManagementMapViewModel.swift */,
 			);
 			name = "Trip Management";
 			sourceTree = "<group>";
@@ -337,6 +361,8 @@
 		D0D89FBD1EC1EE94005C3E83 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0F5A5481F716B6E009A4A51 /* Custom Views */,
+				D02FBD141F2B74BD009CC1CB /* Storyboards */,
 				D0D89FD31EC204C1005C3E83 /* Custom Transitions */,
 				D0D89F901EC1CAFE005C3E83 /* Login */,
 				D0D89F951EC1CAFE005C3E83 /* Trip */,
@@ -354,6 +380,7 @@
 				D0D89FC21EC1F777005C3E83 /* DateFormatterExtensions.swift */,
 				D0D89FC31EC1F777005C3E83 /* NSManagedObjectExtensions.swift */,
 				D0D89FC41EC1F777005C3E83 /* NumberFormatterExtensions.swift */,
+				D0F5A54C1F716BCE009A4A51 /* NumberExtensions.swift */,
 				D0D89FC51EC1F777005C3E83 /* StringExtensions.swift */,
 				D0D89FC61EC1F777005C3E83 /* UIColorExtensions.swift */,
 				D0D89FC71EC1F777005C3E83 /* UIImageExtensions.swift */,
@@ -370,6 +397,23 @@
 			name = "Custom Transitions";
 			sourceTree = "<group>";
 		};
+		D0F5A5481F716B6E009A4A51 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0F5A5491F716B7B009A4A51 /* Speedometer */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		D0F5A5491F716B7B009A4A51 /* Speedometer */ = {
+			isa = PBXGroup;
+			children = (
+				D0F5A54B1F716BB4009A4A51 /* ViewController.swift */,
+				D0F5A54A1F716B9D009A4A51 /* SpeedView.swift */,
+			);
+			name = Speedometer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,14 +422,12 @@
 			buildConfigurationList = D0D89F871EC1C52C005C3E83 /* Build configuration list for PBXNativeTarget "iSpy" */;
 			buildPhases = (
 				2105D61715AC10F8130A8ED6 /* [CP] Check Pods Manifest.lock */,
-				D0D89FAC1EC1CC66005C3E83 /* RSwift */,
 				D0D89F5B1EC1C52C005C3E83 /* Sources */,
 				D0D89F5C1EC1C52C005C3E83 /* Frameworks */,
 				D0D89F5D1EC1C52C005C3E83 /* Resources */,
 				50A01AF797D0D1C997EA7FEC /* [CP] Embed Pods Frameworks */,
 				26A77F32A08D1DA97C73D3E6 /* [CP] Copy Pods Resources */,
 				D0D89FAD1EC1CC87005C3E83 /* SwiftLint */,
-				D076E0B11EC4D3A100FBCC2F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -445,7 +487,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Josh Dubey";
 				TargetAttributes = {
 					D0D89F5E1EC1C52C005C3E83 = {
@@ -498,7 +540,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0D89FB21EC1CD44005C3E83 /* .swiftlint.yml in Resources */,
-				D0D89F6D1EC1C52C005C3E83 /* LaunchScreen.storyboard in Resources */,
+				D02FBD1B1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib in Resources */,
+				D0AB0BF81F03F70700296C55 /* Settings.bundle in Resources */,
+				D02FBD101F2B7466009CC1CB /* Main.storyboard in Resources */,
+				D02FBD131F2B749B009CC1CB /* LaunchScreen.storyboard in Resources */,
 				D0D89F6A1EC1C52C005C3E83 /* Assets.xcassets in Resources */,
 				D0D89F681EC1C52C005C3E83 /* Main.storyboard in Resources */,
 			);
@@ -548,7 +593,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2105D61715AC10F8130A8ED6 /* [CP] Check Pods Manifest.lock */ = {
@@ -563,7 +608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		26A77F32A08D1DA97C73D3E6 /* [CP] Copy Pods Resources */ = {
@@ -641,20 +686,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iSpyTests/Pods-iSpyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D0D89FAC1EC1CC66005C3E83 /* RSwift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = RSwift;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
-		};
 		D0D89FAD1EC1CC87005C3E83 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -681,7 +712,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -696,12 +727,15 @@
 				D0D89FCA1EC1F777005C3E83 /* CollectionExtensions.swift in Sources */,
 				D0D89FCF1EC1F777005C3E83 /* StringExtensions.swift in Sources */,
 				D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */,
+				D02FBD181F2B7B62009CC1CB /* LoadTripTableHeaderView.swift in Sources */,
 				D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */,
 				D076E0BB1EC5C9D600FBCC2F /* LocationManager.swift in Sources */,
 				D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */,
 				D076E0C01EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift in Sources */,
+				D0DA8BF61EFC0E31003352B2 /* TripManagementMapView.swift in Sources */,
 				D0D89FA71EC1CAFE005C3E83 /* Player.swift in Sources */,
 				D0D89FD11EC1F777005C3E83 /* UIImageExtensions.swift in Sources */,
+				D0DA8BF81EFC0F07003352B2 /* TripManagementMapViewModel.swift in Sources */,
 				D0D89FA01EC1CAFE005C3E83 /* DataLoader.swift in Sources */,
 				D0D89FD51EC204FC005C3E83 /* FlipTransitionDelegate.swift in Sources */,
 				D076E0B51EC5BB4800FBCC2F /* LoadTripCell.swift in Sources */,
@@ -711,10 +745,10 @@
 				D0D89FA61EC1CAFE005C3E83 /* Location.swift in Sources */,
 				D076E1071ECA044000FBCC2F /* UIImageView+Protcols.swift in Sources */,
 				D0D89FCC1EC1F777005C3E83 /* DateFormatterExtensions.swift in Sources */,
-				D0D89FB81EC1D4D3005C3E83 /* R.generated.swift in Sources */,
 				D0D89FA21EC1CAFE005C3E83 /* PlatesTableViewCell.swift in Sources */,
 				D0D89F9F1EC1CAFE005C3E83 /* LoginViewController.swift in Sources */,
 				D076E0C21EC5F69400FBCC2F /* AnnotationView.swift in Sources */,
+				D04F00AD1F7170FE007356AA /* SpeedView.swift in Sources */,
 				D0D89FCD1EC1F777005C3E83 /* NSManagedObjectExtensions.swift in Sources */,
 				D0D89FCE1EC1F777005C3E83 /* NumberFormatterExtensions.swift in Sources */,
 				D0D89FD01EC1F777005C3E83 /* UIColorExtensions.swift in Sources */,
@@ -723,6 +757,7 @@
 				D0D89FA51EC1CAFE005C3E83 /* LicensePlate.swift in Sources */,
 				D0D89FA31EC1CAFE005C3E83 /* PlatesViewController.swift in Sources */,
 				D0D89F631EC1C52C005C3E83 /* AppDelegate.swift in Sources */,
+				D0F5A54D1F716BCE009A4A51 /* NumberExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,21 +793,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D02FBD0E1F2B7466009CC1CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D02FBD0F1F2B7466009CC1CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D02FBD111F2B749B009CC1CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D02FBD121F2B749B009CC1CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		D0D89F661EC1C52C005C3E83 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D0D89F671EC1C52C005C3E83 /* Base */,
 			);
 			name = Main.storyboard;
-			path = iSpy;
-			sourceTree = "<group>";
-		};
-		D0D89F6B1EC1C52C005C3E83 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0D89F6C1EC1C52C005C3E83 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			path = iSpy;
 			sourceTree = "<group>";
 		};
@@ -788,7 +830,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -796,7 +840,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -837,7 +885,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -845,7 +895,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -881,6 +935,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iSpy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jdubey.iSpy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -899,6 +954,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iSpy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jdubey.iSpy;
 				PRODUCT_NAME = "$(TARGET_NAME)";

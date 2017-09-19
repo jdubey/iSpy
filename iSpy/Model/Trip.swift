@@ -18,4 +18,8 @@ class Trip: BaseObject {
 
     let plates = LinkingObjects(fromType: LicensePlate.self, property: "trip")
 
+    func locations() -> [Location] {
+        let platesWithLocations = plates.filter("location != nil")
+        return platesWithLocations.map {$0.location.require()}
+    }
 }

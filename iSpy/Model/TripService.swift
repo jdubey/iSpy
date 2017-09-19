@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import CleanroomLogger
 
 class TripService: NSObject {
 

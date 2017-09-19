@@ -8,11 +8,12 @@
 
 import UIKit
 import RealmSwift
-import CleanroomLogger
 
 class PlatesViewController: UIViewController {
 
     @IBOutlet weak var platesTableView: UITableView!
+    @IBOutlet weak var tripNameLabel: UILabel!
+    @IBOutlet weak var speedView: SpeedView!
 
     lazy var trip: Trip? = {
         return TripService.defaultService.fetchCurrentTrip()
@@ -25,14 +26,18 @@ class PlatesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = trip?.name
+        configureTableView()
+        speedView.setNeedsDisplay()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        trip = TripService.defaultService.fetchCurrentTrip()
         if let plates = trip?.plates {
             plateModels = plates.map ({ PlatesTableViewCellModel($0) })
         }
-
-        configureTableView()
-
+        tripNameLabel.text = trip?.name
+        platesTableView.reloadData()
     }
 
     private func configureTableView() {
@@ -57,7 +62,7 @@ extension PlatesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = (tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.platesTableViewCell.identifier) as? PlatesTableViewCell).require()
+        let cell = (tableView.dequeueReusableCell(withIdentifier: "PlatesTableViewCell") as? PlatesTableViewCell).require()
 
         configure(cell, with: plateModels[indexPath.row])
         return cell
@@ -81,6 +86,9 @@ extension PlatesViewController: UITableViewDelegate {
         let location = LocationManager.defaultManager().currentLocation()
         plateModel.location = location
         plateModel.found = true
+        if let cell = tableView.cellForRow(at: indexPath) as? PlatesTableViewCell {
+            cell.location = location
+        }
     }
 }
 

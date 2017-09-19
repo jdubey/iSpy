@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CleanroomLogger
 
 protocol CreateTripViewControllerDelegate: class {
     func didCreateTrip(_ createTripViewController: CreateTripViewController)
@@ -47,21 +46,9 @@ class CreateTripViewController: UIViewController {
             newTrip.name = nameTripTextField.text.require()
             _ = DataManager.safeWrite()
 
-            Log.debug?.message("Trip = \(newTrip)")
-
             delegate?.didCreateTrip(self)
 
-//            if let vc = self.presentingViewController as? UINavigationController {
-//
-//                if let platesViewController = R.storyboard.main.platesViewController() {
-//                    platesViewController.trip = newTrip
-//                    vc.pushViewController(platesViewController, animated: true)
-//                }
-//
-//                dismiss(animated: true)
-//            }
-
-            //TOD: alert with action about creation fail, that dismisses vc
+            //TODO: alert with action about creation fail, that dismisses vc
         }
     }
 }

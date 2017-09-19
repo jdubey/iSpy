@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 import RealmSwift
-import CleanroomLogger
 
 class LocationManager: NSObject {
 
@@ -65,7 +64,6 @@ extension LocationManager : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             startLocationServices()
-            Log.debug?.message("Started location services")
         }
     }
 

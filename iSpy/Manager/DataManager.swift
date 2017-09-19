@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 import Require
-import CleanroomLogger
 
 struct DataManager {
 
@@ -24,7 +23,6 @@ struct DataManager {
         do {
             try _defaultRealm?.commitWrite()
         } catch {
-            Log.error?.message("failed to write data. Error: \(error)")
             return false
         }
         return true

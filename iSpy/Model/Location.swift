@@ -13,4 +13,8 @@ class Location: BaseObject {
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     dynamic var timestamp: Date?
+
+    override var description: String {
+        return "Latitude: \(latitude) \n Longitude: \(longitude)"
+    }
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import CleanroomLogger
 
 protocol PlatesTableViewCellDelegate: class {
     func plateCellExpansionDidChange(_ cell: PlatesTableViewCell)
@@ -23,6 +22,8 @@ class PlatesTableViewCell: UITableViewCell {
     @IBOutlet weak var mapViewHeightConstraint: NSLayoutConstraint!
 
     weak var delegate: PlatesTableViewCellDelegate?
+
+    var mapviewDidInit = false
 
     var imageName: String? {
         didSet {
@@ -50,13 +51,7 @@ class PlatesTableViewCell: UITableViewCell {
         }
     }
 
-    var location: Location? {
-        didSet {
-            if let newLocation = location {
-                setUpMapView(newLocation)
-            }
-        }
-    }
+    var location: Location?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,7 +62,6 @@ class PlatesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        Log.debug?.message("\(String(describing: name?.description)) isSelected = \(selected)")
 
         if let name = name, found == false, selected == true {
             plateImageView.fade(toImageNamed: name, duration: 0.2, completion: nil)
@@ -76,19 +70,20 @@ class PlatesTableViewCell: UITableViewCell {
     }
 
     private func setUpMapView(_ location: Location) {
-        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let center = CLLocationCoordinate2DMake(location.latitude, location.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
-        let region = MKCoordinateRegionMake(mapView.centerCoordinate, span)
+        let region = MKCoordinateRegionMake(center, span)
 
-        let regionThatFits = mapView.regionThatFits(region)
-        mapView.region = regionThatFits
-        let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
+        mapView.setRegion(region, animated: true)
+
+        let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: center)
         annotation.backgroundColor = .green
         mapView.addAnnotation(annotation)
+
+        mapviewDidInit = true
     }
 
     private func showButton(_ shouldShow: Bool) {
-        Log.debug?.message("Should show \(String(describing: name)) = \(shouldShow)")
         if shouldShow {
             expandButton.isHidden = false
             expandButton.isEnabled = true
@@ -109,12 +104,21 @@ class PlatesTableViewCell: UITableViewCell {
         updateConstraints()
     }
 
+    override func updateConstraints() {
+        super.updateConstraints()
+        if let location = location, mapviewDidInit == false {
+            setUpMapView(location)
+        }
+    }
+
     // MARK: - Actions
     @IBAction func didTapExpandButton(_ sender: Any) {
 
-        adjustCellHeight()
-
         delegate?.plateCellExpansionDidChange(self)
 
+    }
+
+    override func prepareForReuse() {
+        mapviewDidInit = false
     }
 }
