@@ -13,51 +13,37 @@ import MapKit
 
 class LoadTripViewController: UIViewController {
 
-    @IBOutlet weak var tripTableView: UITableView!
-    //    @IBOutlet weak var newTripButton: UIButton!
-//    @IBOutlet weak var mapView: TripManagementMapView!
+    @IBOutlet weak var tripCollectionView: UICollectionView!
 
     fileprivate var trips = TripService.defaultService.fetchAllTrips().map { LoadTripCellModel(trip: $0) }
+
+    fileprivate lazy var currentTrip: Trip? = {
+        return TripService.defaultService.fetchCurrentTrip()
+    }()
 
     var mkview = MKMapView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let currentTrip = TripService.defaultService.fetchCurrentTrip() {
-//            mapView.locations = currentTrip.locations()
-//        }
-
+        title = "TRIPS"
         configureTableView()
     }
 
     private func configureTableView() {
+        tripCollectionView.delegate = self
+        tripCollectionView.dataSource = self
 
-        tripTableView.delegate = self
-        tripTableView.dataSource = self
-
-        let headerNib = UINib(nibName: "LoadTripTableHeaderView", bundle: nil)
-//        tripTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "LoadTripTableHeaderView")
-//
-//        let headerView = (tripTableView.dequeueReusableHeaderFooterView(withIdentifier: "LoadTripTableHeaderView") as? LoadTripTableHeaderView).require()
-
-//        tripTableView.tableHeaderView = headerView
-
+        let nib = UINib(nibName: "LoadTripCell", bundle: nil)
+        tripCollectionView.register(nib, forCellWithReuseIdentifier: "LoadTripCell")
     }
 
-//    private func setupMapView() {
-//        if let currentTrip = TripService.defaultService.fetchCurrentTrip() {
-//            var allConstraints = [NSLayoutConstraint]()
-//            mapView.locations = currentTrip.locations()
-//            mkview.translatesAutoresizingMaskIntoConstraints = false
-//            view.addSubview(mkview)
-//            let hconstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[mkview]-|", options: .alignAllCenterY, metrics: nil, views: ["mkview": mkview])
-//            let vconstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[mkview]-|", options: .alignAllCenterX, metrics: nil, views: ["mkview": mkview])
-//            allConstraints += hconstraints
-//            allConstraints += vconstraints
-//        } else {
-//            mapView.isHidden = true
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewcontroller = segue.destination as? TripDetailViewController {
+            if let currentTrip = currentTrip {
+                viewcontroller.locations = currentTrip.locations()
+            }
+        }
+    }
 
     // MARK: - Actions
     @IBAction func newTripTapped(_ sender: Any) {
@@ -70,51 +56,39 @@ class LoadTripViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension LoadTripViewController : UITableViewDataSource {
+extension LoadTripViewController : UICollectionViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return trips.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let tripCell = (tableView.dequeueReusableCell(withIdentifier: "LoadTripCell", for: indexPath) as? LoadTripCell).require()
-        tripCell.cellModel = trips[indexPath.row]
-        return tripCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadTripCell", for: indexPath) as! LoadTripCell
+        cell.cellModel = trips[indexPath.row]
+        cell.deleteClosure = {
+            print("Delete trip")
+        }
+//        cell.backgroundColor = .red
+        return cell
     }
-
 }
 
-// MARK: - UITableViewDelegate
-extension LoadTripViewController : UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let selectedTrip = trips[indexPath.row].trip
-        setCurrentTrip(selectedTrip)
-//        mapView.locations = selectedTrip.locations()
+extension LoadTripViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let tripDetailController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as? TripDetailViewController {
+            if let currentTrip = currentTrip {
+                tripDetailController.locations = currentTrip.locations()
+                present(tripDetailController, animated: true, completion: nil)
+            }
+        }
     }
 
-    func setCurrentTrip(_ trip: Trip) {
-        let currentTrip = TripService.defaultService.fetchCurrentTrip()
-        DataManager.defaultRealm().beginWrite()
-        trip.isCurrentTrip = true
-        currentTrip?.isCurrentTrip = false
-        _ = DataManager.safeWrite()
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 169
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerNib = UINib(nibName: "LoadTripTableHeaderView", bundle: nil)
-        let headerView = headerNib.instantiate(withOwner: self, options: nil)[0] as? UIView
-        return headerView
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 375, height: 150)
     }
 
 }
@@ -122,6 +96,6 @@ extension LoadTripViewController : UITableViewDelegate {
 extension LoadTripViewController: CreateTripViewControllerDelegate {
     func didCreateTrip(_ createTripViewController: CreateTripViewController) {
         dismiss(animated: true, completion: nil)
-        tripTableView.reloadData()
+        tripCollectionView.reloadData()
     }
 }

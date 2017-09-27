@@ -11,33 +11,34 @@ import UIKit
 @IBDesignable class SpeedView: UIView {
 
     lazy var renderer: UIGraphicsImageRenderer = {
-       return UIGraphicsImageRenderer(size: CGSize(width: self.frame.width, height: self.frame.height + 20))
+        return UIGraphicsImageRenderer(size: CGSize(width: self.frame.width, height: self.frame.height + 20))
     }()
 
     var needleLayer = CAShapeLayer()
 
-    @IBInspectable var arcColor: UIColor = .green {
-        didSet {
-            self.setNeedsDisplay()
-        }
+    @IBInspectable var arcColor: UIColor = .green
+
+    @IBInspectable var startAngle: CGFloat = 0
+
+    @IBInspectable var endAngle: CGFloat = -180.0
+
+    @IBInspectable var lineWidth: CGFloat = 5.0
+
+    @IBInspectable var speed: CGFloat = 0.0
+
+    func incrementSpeed() {
+        speed += 1.0
+        performRotation()
     }
 
-    @IBInspectable var startAngle: CGFloat = 0 {
-        didSet {
-            self.setNeedsDisplay()
-        }
+    func decrementSpeed() {
+        speed -= 1.0
+        performRotation()
     }
 
-    @IBInspectable var endAngle: CGFloat = -180.0 {
-        didSet {
-            self.setNeedsDisplay()
-        }
-    }
-
-    @IBInspectable var lineWidth: CGFloat = 5.0 {
-        didSet {
-            self.setNeedsDisplay()
-        }
+    func performRotation() {
+        needleLayer.setAffineTransform(CGAffineTransform.identity)
+        needleLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(speed/50.0 * .pi)))
     }
 
     override func prepareForInterfaceBuilder() {
@@ -51,11 +52,15 @@ import UIKit
 
     private func drawNeedle() {
 
+        if needleLayer.superlayer == nil {
+            layer.addSublayer(needleLayer)
+        }
+
         needleLayer.frame = CGRect(x: 20, y: 20, width: bounds.width - 40, height: bounds.width - 40)
 
         UIGraphicsBeginImageContext(needleLayer.frame.size)
-        let path = UIBezierPath()
 
+        let path = UIBezierPath()
         let center = CGPoint(x: needleLayer.frame.width / 2, y: needleLayer.frame.height / 2)
         path.move(to: center)
         path.addLine(to: CGPoint(x: center.x, y: center.y - 5))
@@ -68,10 +73,9 @@ import UIKit
         path.stroke()
         path.fill()
 
-        layer.addSublayer(needleLayer)
-        needleLayer.setNeedsLayout()
-        UIGraphicsEndImageContext()
+        needleLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(speed/50.0 * .pi)))
 
+        UIGraphicsEndImageContext()
     }
 
     private func drawSpeedGuage() {

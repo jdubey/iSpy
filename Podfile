@@ -8,7 +8,7 @@ target 'iSpy' do
   # Pods for iSpy
   pod 'RealmSwift', '~> 2.8'
   pod 'SwiftLint'
-  # pod 'R.swift'
+  pod 'R.swift'
   pod 'Require'
   pod 'TwitterKit'
 

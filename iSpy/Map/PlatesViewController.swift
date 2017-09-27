@@ -38,6 +38,10 @@ class PlatesViewController: UIViewController {
         }
         tripNameLabel.text = trip?.name
         platesTableView.reloadData()
+        let numberFound = plateModels.filter { (model) -> Bool in
+            return model.found
+        }.count
+        speedView.speed = CGFloat(numberFound)
     }
 
     private func configureTableView() {
@@ -85,6 +89,9 @@ extension PlatesViewController: UITableViewDelegate {
         var plateModel = plateModels[indexPath.row]
         let location = LocationManager.defaultManager().currentLocation()
         plateModel.location = location
+        if plateModel.found == false {
+            speedView.incrementSpeed()
+        }
         plateModel.found = true
         if let cell = tableView.cellForRow(at: indexPath) as? PlatesTableViewCell {
             cell.location = location

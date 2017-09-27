@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2fo-3k-RyK" customClass="LoadTripCell" customModule="iSpy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkh-k2-ePi">
+                        <rect key="frame" x="166" y="64.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOY-v8-oKy">
+                        <rect key="frame" x="331" y="112" width="36" height="30"/>
+                        <state key="normal" title="trash"/>
+                        <connections>
+                            <action selector="didTapDelete:" destination="2fo-3k-RyK" eventType="touchUpInside" id="eat-Uq-HLE"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPp-1h-Suf">
+                        <rect key="frame" x="8" y="112" width="50" height="30"/>
+                        <state key="normal" title="current"/>
+                        <connections>
+                            <action selector="didTapMakeCurrent:" destination="2fo-3k-RyK" eventType="touchUpInside" id="rNL-CP-POl"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.66666666669999997" green="0.70588235290000001" blue="0.099151136749999993" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="IPp-1h-Suf" firstAttribute="leading" secondItem="2fo-3k-RyK" secondAttribute="leading" constant="8" id="0dG-ic-YGd"/>
+                <constraint firstAttribute="bottom" secondItem="bOY-v8-oKy" secondAttribute="bottom" constant="8" id="cmm-HZ-JEi"/>
+                <constraint firstItem="Qkh-k2-ePi" firstAttribute="centerY" secondItem="2fo-3k-RyK" secondAttribute="centerY" id="eEy-9L-qhw"/>
+                <constraint firstAttribute="trailing" secondItem="bOY-v8-oKy" secondAttribute="trailing" constant="8" id="lk7-ok-2Z2"/>
+                <constraint firstAttribute="bottom" secondItem="IPp-1h-Suf" secondAttribute="bottom" constant="8" id="nOG-kq-uOb"/>
+                <constraint firstItem="Qkh-k2-ePi" firstAttribute="centerX" secondItem="2fo-3k-RyK" secondAttribute="centerX" id="zlB-3a-akO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="3YR-ca-1eW"/>
+            <size key="customSize" width="291" height="163"/>
+            <connections>
+                <outlet property="deleteButton" destination="bOY-v8-oKy" id="Bds-uR-Pid"/>
+                <outlet property="makeCurrentButton" destination="IPp-1h-Suf" id="uDL-mq-VOy"/>
+                <outlet property="tripNameLabel" destination="Qkh-k2-ePi" id="LkA-Ve-Jfx"/>
+            </connections>
+            <point key="canvasLocation" x="7" y="-212"/>
+        </collectionViewCell>
+    </objects>
+</document>

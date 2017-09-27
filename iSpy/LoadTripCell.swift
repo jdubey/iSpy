@@ -8,16 +8,21 @@
 
 import UIKit
 
-class LoadTripCell: UITableViewCell {
+class LoadTripCell: UICollectionViewCell {
 
-    @IBOutlet private weak var currentTripImageView: UIImageView!
+    typealias Closure = () -> Void
+
     @IBOutlet private weak var tripNameLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var makeCurrentButton: UIButton!
+
+    var deleteClosure: Closure?
+    var makeCurrentClossure: Closure?
 
     var cellModel: LoadTripCellModel? {
         didSet {
             if let model = cellModel {
                 tripNameLabel.text = model.tripName()
-                currentTripImageView.backgroundColor = model.isCurrentTrip() ? .green : .red
             }
         }
     }
@@ -26,8 +31,12 @@ class LoadTripCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBAction func didTapDelete(_ sender: UIButton) {
+        deleteClosure!()
+    }
+
+    @IBAction func didTapMakeCurrent(_ sender: UIButton) {
+        makeCurrentClossure!()
     }
 
 }

@@ -38,14 +38,18 @@ class TripManagementMapView: UIView {
     }
 
     private func setUpMapView() {
-        locations.forEach { location in
-            mapView.centerCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
-            let region = MKCoordinateRegionMake(mapView.centerCoordinate, span)
+        if locations.count > 0 {
+        let firstCoord =  CLLocationCoordinate2D(latitude: locations[0].latitude, longitude: locations[0].longitude)
+        mapView.setCenter(firstCoord, animated: true)
+        let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+        let region = MKCoordinateRegionMake(firstCoord, span)
+        let regionThatFits = mapView.regionThatFits(region)
+        mapView.setRegion(regionThatFits, animated: false)
+        }
 
-            let regionThatFits = mapView.regionThatFits(region)
-            mapView.region = regionThatFits
-            let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: mapView.centerCoordinate)
+        locations.forEach { location in
+            let coord = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: coord)
             annotation.backgroundColor = .green
             mapView.addAnnotation(annotation)
 

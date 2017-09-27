@@ -10,6 +10,7 @@
 		393CCAC757B38307B5F05A8F /* Pods_iSpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CB84A6E0B160C3C0BE6127 /* Pods_iSpy.framework */; };
 		B4ED68C25738095482C107A6 /* Pods_iSpyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE33B358D0A789DA151A1C94 /* Pods_iSpyTests.framework */; };
 		B5B6F458C770D7553320E643 /* Pods_iSpyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC854C11DFBCD5CD0FE0433F /* Pods_iSpyUITests.framework */; };
+		D014AFC91F7570A900FA757C /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014AFC81F7570A900FA757C /* TripDetailViewController.swift */; };
 		D02FBD101F2B7466009CC1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD0E1F2B7466009CC1CB /* Main.storyboard */; };
 		D02FBD131F2B749B009CC1CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD111F2B749B009CC1CB /* LaunchScreen.storyboard */; };
 		D02FBD181F2B7B62009CC1CB /* LoadTripTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */; };
@@ -24,6 +25,7 @@
 		D076E0C21EC5F69400FBCC2F /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */; };
 		D076E1071ECA044000FBCC2F /* UIImageView+Protcols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E1061ECA044000FBCC2F /* UIImageView+Protcols.swift */; };
 		D0AB0BF81F03F70700296C55 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0AB0BF71F03F70700296C55 /* Settings.bundle */; };
+		D0AF51E51F7943EB00626FFF /* LoadTripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AF51E41F7943EB00626FFF /* LoadTripCell.xib */; };
 		D0D89F631EC1C52C005C3E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */; };
 		D0D89F681EC1C52C005C3E83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F661EC1C52C005C3E83 /* Main.storyboard */; };
 		D0D89F6A1EC1C52C005C3E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D89F691EC1C52C005C3E83 /* Assets.xcassets */; };
@@ -55,6 +57,11 @@
 		D0D89FD51EC204FC005C3E83 /* FlipTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89FD41EC204FC005C3E83 /* FlipTransitionDelegate.swift */; };
 		D0DA8BF61EFC0E31003352B2 /* TripManagementMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA8BF51EFC0E31003352B2 /* TripManagementMapView.swift */; };
 		D0DA8BF81EFC0F07003352B2 /* TripManagementMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA8BF71EFC0F07003352B2 /* TripManagementMapViewModel.swift */; };
+		D0E256F91F7BB06E0031961E /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E256F81F7BB06E0031961E /* HomeScreenViewController.swift */; };
+		D0E256FA1F7BB2720031961E /* RotaryWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E256F51F7BAF140031961E /* RotaryWheel.swift */; };
+		D0E256FB1F7BB2760031961E /* RotaryWheelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E256F61F7BAF150031961E /* RotaryWheelProtocol.swift */; };
+		D0E256FC1F7BB27A0031961E /* Sector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E256F41F7BAF140031961E /* Sector.swift */; };
+		D0E256FF1F7BB6E20031961E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E256FE1F7BB6E20031961E /* R.generated.swift */; };
 		D0F5A54D1F716BCE009A4A51 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5A54C1F716BCE009A4A51 /* NumberExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +90,7 @@
 		6603BCE7BD0234E7F8D15158 /* Pods-iSpyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyTests/Pods-iSpyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		75FE383DB17944778D2FDF26 /* Pods-iSpyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSpyUITests/Pods-iSpyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC854C11DFBCD5CD0FE0433F /* Pods_iSpyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D014AFC81F7570A900FA757C /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		D02FBD0F1F2B7466009CC1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D02FBD121F2B749B009CC1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripTableHeaderView.swift; sourceTree = "<group>"; };
@@ -96,6 +104,7 @@
 		D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		D076E1061ECA044000FBCC2F /* UIImageView+Protcols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Protcols.swift"; sourceTree = "<group>"; };
 		D0AB0BF71F03F70700296C55 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		D0AF51E41F7943EB00626FFF /* LoadTripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadTripCell.xib; sourceTree = "<group>"; };
 		D0D89F5F1EC1C52C005C3E83 /* iSpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D89F671EC1C52C005C3E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +142,11 @@
 		D0D89FD41EC204FC005C3E83 /* FlipTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipTransitionDelegate.swift; sourceTree = "<group>"; };
 		D0DA8BF51EFC0E31003352B2 /* TripManagementMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManagementMapView.swift; sourceTree = "<group>"; };
 		D0DA8BF71EFC0F07003352B2 /* TripManagementMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManagementMapViewModel.swift; sourceTree = "<group>"; };
+		D0E256F41F7BAF140031961E /* Sector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
+		D0E256F51F7BAF140031961E /* RotaryWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryWheel.swift; sourceTree = "<group>"; };
+		D0E256F61F7BAF150031961E /* RotaryWheelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryWheelProtocol.swift; sourceTree = "<group>"; };
+		D0E256F81F7BB06E0031961E /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		D0E256FE1F7BB6E20031961E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D0F5A54A1F716B9D009A4A51 /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
 		D0F5A54B1F716BB4009A4A51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D0F5A54C1F716BCE009A4A51 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
@@ -209,6 +223,7 @@
 				D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */,
 				D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */,
 				D02FBD1A1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib */,
+				D0AF51E41F7943EB00626FFF /* LoadTripCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -264,6 +279,7 @@
 		D0D89F611EC1C52C005C3E83 /* iSpy */ = {
 			isa = PBXGroup;
 			children = (
+				D0E256FE1F7BB6E20031961E /* R.generated.swift */,
 				D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */,
 				D0D89F691EC1C52C005C3E83 /* Assets.xcassets */,
 				D076E1051ECA03CD00FBCC2F /* Protocols */,
@@ -354,6 +370,7 @@
 				D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */,
 				D0DA8BF51EFC0E31003352B2 /* TripManagementMapView.swift */,
 				D0DA8BF71EFC0F07003352B2 /* TripManagementMapViewModel.swift */,
+				D014AFC81F7570A900FA757C /* TripDetailViewController.swift */,
 			);
 			name = "Trip Management";
 			sourceTree = "<group>";
@@ -361,6 +378,7 @@
 		D0D89FBD1EC1EE94005C3E83 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0E256F71F7BB0440031961E /* Home Screen */,
 				D0F5A5481F716B6E009A4A51 /* Custom Views */,
 				D02FBD141F2B74BD009CC1CB /* Storyboards */,
 				D0D89FD31EC204C1005C3E83 /* Custom Transitions */,
@@ -397,9 +415,28 @@
 			name = "Custom Transitions";
 			sourceTree = "<group>";
 		};
+		D0E256F31F7BAEEB0031961E /* Selection Wheel */ = {
+			isa = PBXGroup;
+			children = (
+				D0E256F51F7BAF140031961E /* RotaryWheel.swift */,
+				D0E256F61F7BAF150031961E /* RotaryWheelProtocol.swift */,
+				D0E256F41F7BAF140031961E /* Sector.swift */,
+			);
+			name = "Selection Wheel";
+			sourceTree = "<group>";
+		};
+		D0E256F71F7BB0440031961E /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				D0E256F81F7BB06E0031961E /* HomeScreenViewController.swift */,
+			);
+			name = "Home Screen";
+			sourceTree = "<group>";
+		};
 		D0F5A5481F716B6E009A4A51 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				D0E256F31F7BAEEB0031961E /* Selection Wheel */,
 				D0F5A5491F716B7B009A4A51 /* Speedometer */,
 			);
 			name = "Custom Views";
@@ -422,6 +459,7 @@
 			buildConfigurationList = D0D89F871EC1C52C005C3E83 /* Build configuration list for PBXNativeTarget "iSpy" */;
 			buildPhases = (
 				2105D61715AC10F8130A8ED6 /* [CP] Check Pods Manifest.lock */,
+				D0E256FD1F7BB5840031961E /* Rswift */,
 				D0D89F5B1EC1C52C005C3E83 /* Sources */,
 				D0D89F5C1EC1C52C005C3E83 /* Frameworks */,
 				D0D89F5D1EC1C52C005C3E83 /* Resources */,
@@ -539,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AF51E51F7943EB00626FFF /* LoadTripCell.xib in Resources */,
 				D0D89FB21EC1CD44005C3E83 /* .swiftlint.yml in Resources */,
 				D02FBD1B1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib in Resources */,
 				D0AB0BF81F03F70700296C55 /* Settings.bundle in Resources */,
@@ -698,7 +737,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\nexit 0";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint autocorrect\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\nexit 0";
+		};
+		D0E256FD1F7BB5840031961E /* Rswift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Rswift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
 		};
 		F8FB2F4A69B4AE174C455FE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -724,8 +777,11 @@
 			files = (
 				D0D89FC91EC1F777005C3E83 /* CALayerExtension.swift in Sources */,
 				D0D89FCB1EC1F777005C3E83 /* DateExtensions.swift in Sources */,
+				D0E256FA1F7BB2720031961E /* RotaryWheel.swift in Sources */,
 				D0D89FCA1EC1F777005C3E83 /* CollectionExtensions.swift in Sources */,
+				D014AFC91F7570A900FA757C /* TripDetailViewController.swift in Sources */,
 				D0D89FCF1EC1F777005C3E83 /* StringExtensions.swift in Sources */,
+				D0E256FC1F7BB27A0031961E /* Sector.swift in Sources */,
 				D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */,
 				D02FBD181F2B7B62009CC1CB /* LoadTripTableHeaderView.swift in Sources */,
 				D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */,
@@ -740,6 +796,7 @@
 				D0D89FD51EC204FC005C3E83 /* FlipTransitionDelegate.swift in Sources */,
 				D076E0B51EC5BB4800FBCC2F /* LoadTripCell.swift in Sources */,
 				D0D89FA91EC1CAFE005C3E83 /* TripService.swift in Sources */,
+				D0E256FB1F7BB2760031961E /* RotaryWheelProtocol.swift in Sources */,
 				D0D89FD21EC1F777005C3E83 /* UIViewExtensions.swift in Sources */,
 				D0D89FA11EC1CAFE005C3E83 /* DataManager.swift in Sources */,
 				D0D89FA61EC1CAFE005C3E83 /* Location.swift in Sources */,
@@ -747,7 +804,9 @@
 				D0D89FCC1EC1F777005C3E83 /* DateFormatterExtensions.swift in Sources */,
 				D0D89FA21EC1CAFE005C3E83 /* PlatesTableViewCell.swift in Sources */,
 				D0D89F9F1EC1CAFE005C3E83 /* LoginViewController.swift in Sources */,
+				D0E256FF1F7BB6E20031961E /* R.generated.swift in Sources */,
 				D076E0C21EC5F69400FBCC2F /* AnnotationView.swift in Sources */,
+				D0E256F91F7BB06E0031961E /* HomeScreenViewController.swift in Sources */,
 				D04F00AD1F7170FE007356AA /* SpeedView.swift in Sources */,
 				D0D89FCD1EC1F777005C3E83 /* NSManagedObjectExtensions.swift in Sources */,
 				D0D89FCE1EC1F777005C3E83 /* NumberFormatterExtensions.swift in Sources */,
