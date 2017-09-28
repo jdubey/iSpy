@@ -27,6 +27,7 @@ class LoadTripViewController: UIViewController {
         super.viewDidLoad()
         title = "TRIPS"
         configureTableView()
+        addHomeButton()
     }
 
     private func configureTableView() {
@@ -40,7 +41,7 @@ class LoadTripViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewcontroller = segue.destination as? TripDetailViewController {
             if let currentTrip = currentTrip {
-                viewcontroller.locations = currentTrip.locations()
+                viewcontroller.licensePlates = currentTrip.plates.map { $0 }
             }
         }
     }
@@ -67,13 +68,15 @@ extension LoadTripViewController : UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadTripCell", for: indexPath) as! LoadTripCell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadTripCell", for: indexPath) as? LoadTripCell {
         cell.cellModel = trips[indexPath.row]
         cell.deleteClosure = {
             print("Delete trip")
         }
+            return cell
+        }
 //        cell.backgroundColor = .red
-        return cell
+        return UICollectionViewCell()
     }
 }
 
@@ -81,7 +84,7 @@ extension LoadTripViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let tripDetailController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TripDetailViewController") as? TripDetailViewController {
             if let currentTrip = currentTrip {
-                tripDetailController.locations = currentTrip.locations()
+                tripDetailController.licensePlates = currentTrip.plates.map { $0 }
                 present(tripDetailController, animated: true, completion: nil)
             }
         }

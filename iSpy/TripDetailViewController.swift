@@ -13,12 +13,13 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var tripManagementMapView: TripManagementMapView!
 
-    var locations = [Location]()
+    var licensePlates = [LicensePlate]()
+    var highlistPlate: LicensePlate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tripManagementMapView.locations = locations
+        tripManagementMapView.licensePlates = licensePlates
     }
 
     override func didReceiveMemoryWarning() {

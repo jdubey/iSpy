@@ -10,16 +10,21 @@ import UIKit
 import MapKit
 
 class TripManagementMapView: UIView {
+    
+    let reuseIdentifer = "Annotaton"
 
-    var locations = [Location]() {
+    var licensePlates = [LicensePlate]() {
         didSet {
             setUpMapView()
         }
     }
 
+    var highlightPlate: LicensePlate?
+
     lazy var mapView: MKMapView = {
         let mapView = MKMapView(frame: .zero)
         mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.delegate = self
         return mapView
     }()
 
@@ -38,22 +43,40 @@ class TripManagementMapView: UIView {
     }
 
     private func setUpMapView() {
+        let locations = licensePlates.flatMap({$0.location})
         if locations.count > 0 {
-        let firstCoord =  CLLocationCoordinate2D(latitude: locations[0].latitude, longitude: locations[0].longitude)
-        mapView.setCenter(firstCoord, animated: true)
-        let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
-        let region = MKCoordinateRegionMake(firstCoord, span)
-        let regionThatFits = mapView.regionThatFits(region)
-        mapView.setRegion(regionThatFits, animated: false)
+            let firstCoord =  CLLocationCoordinate2D(latitude: locations[0].latitude, longitude: locations[0].longitude)
+            mapView.setCenter(firstCoord, animated: true)
+            let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+            let region = MKCoordinateRegionMake(firstCoord, span)
+            let regionThatFits = mapView.regionThatFits(region)
+            mapView.setRegion(regionThatFits, animated: false)
         }
 
-        locations.forEach { location in
-            let coord = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let annotation = AnnotationView(frame: CGRect(x: 10, y: 10, width: 10, height: 10), coordinate: coord)
-            annotation.backgroundColor = .green
-            mapView.addAnnotation(annotation)
 
+        for index in 0...locations.count {
+            let coord = CLLocationCoordinate2D(latitude: locations[index].latitude, longitude: locations[index].longitude)
+            let annotation = Annotation(coord, title: licensePlates[index].name)
+            mapView.addAnnotation(annotation)
         }
     }
+}
 
+extension TripManagementMapView: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifer) {
+            annotationView.annotation = annotation
+//            annotationView.addBackgroundImage(imageName: "icon1")
+            annotationView.canShowCallout = true
+            let calloutLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 10))
+            calloutLabel.text = annotation.title!
+            annotationView.leftCalloutAccessoryView = calloutLabel
+            return annotationView
+        } else {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifer)
+            annotationView.isEnabled = true
+            annotationView.image = #imageLiteral(resourceName: "icon1")
+            return annotationView
+        }
+    }
 }

@@ -28,6 +28,7 @@ class PlatesViewController: UIViewController {
 
         configureTableView()
         speedView.setNeedsDisplay()
+        addHomeButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +53,14 @@ class PlatesViewController: UIViewController {
         platesTableView.rowHeight = UITableViewAutomaticDimension
         platesTableView.estimatedRowHeight = 50
     }
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.segue.platesViewController.tripShowDetail.identifier,
+            let tripDetailViewController = segue.destination as? TripDetailViewController {
+            tripDetailViewController.licensePlates = plateModels.flatMap {$0.licensePlate}
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -75,7 +84,6 @@ extension PlatesViewController: UITableViewDataSource {
     private func configure(_ cell: PlatesTableViewCell, with model: PlatesTableViewCellModel) {
         cell.delegate = self
         cell.name = model.licensePlate.name
-        cell.isExpanded = model.isExpanded
         cell.found = model.found
         cell.imageName = model.imageName
         cell.location = model.location
@@ -101,15 +109,8 @@ extension PlatesViewController: UITableViewDelegate {
 
 // MARK: - PlatesTableViewCellDelegate
 extension PlatesViewController: PlatesTableViewCellDelegate {
-    func plateCellExpansionDidChange(_ cell: PlatesTableViewCell) {
-
-        if let index = platesTableView.indexPath(for: cell)?.row {
-            plateModels[index].isExpanded = !plateModels[index].isExpanded
-            cell.isExpanded = plateModels[index].isExpanded
-        }
-
-        platesTableView.beginUpdates()
-        platesTableView.endUpdates()
+    func didTapShowDetail(_ cell: PlatesTableViewCell) {
+        performSegue(withIdentifier: R.segue.platesViewController.tripShowDetail.identifier, sender: self)
     }
 
 }
