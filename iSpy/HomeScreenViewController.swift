@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Rswift
 
 class HomeScreenViewController: UIViewController {
 
     @IBOutlet weak var wheelView: UIView!
+    var selectedViewController: UIViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +26,11 @@ class HomeScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func goButtonTapped(_ sender: UIButton) {
+        if selectedViewController != nil {
+            present(selectedViewController!, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -39,11 +47,11 @@ extension HomeScreenViewController: RotaryProtocol {
     func wheelDidChangeValue(_ newValue: Int) {
         switch newValue {
         case 0:
-            print("create trip")
+            selectedViewController = R.storyboard.main.createTripViewController()
         case 1:
-            print("continue")
+            selectedViewController = R.storyboard.main.platesViewController()
         case 2:
-            print("manage")
+            selectedViewController = R.storyboard.main.loadTripViewController()
         default:
             print("nothig")
         }
