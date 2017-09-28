@@ -9,25 +9,15 @@
 import UIKit
 import MapKit
 
-class AnnotationView: UIView, MKAnnotation {
+class Annotation: NSObject, MKAnnotation {
 
-    var coordinate: CLLocationCoordinate2D
+    let coordinate: CLLocationCoordinate2D
     var title: String?
-    var subtitle: String?
+    let subtitle: String?
 
-    override init(frame: CGRect) {
-        coordinate = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
-        super.init(frame: frame)
-    }
-
-    required init?(coder: NSCoder) {
-        coordinate = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
-        super.init(coder: coder)
-    }
-
-    convenience init(frame: CGRect, coordinate: CLLocationCoordinate2D) {
-        self.init(frame: frame)
+    init(_ coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil) {
         self.coordinate = coordinate
+        self.title =  title
+        self.subtitle = subtitle
     }
-
 }
