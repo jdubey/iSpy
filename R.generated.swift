@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 23 images.
+  /// This `R.image` struct is generated, and contains static references to 24 images.
   struct image {
     /// Image `Alabama_bw`.
     static let alabama_bw = Rswift.ImageResource(bundle: R.hostingBundle, name: "Alabama_bw")
@@ -84,6 +84,8 @@ struct R: Rswift.Validatable {
     static let icons8Car48 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8-Car-48")
     /// Image `icons8-Car-49`.
     static let icons8Car49 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8-Car-49")
+    /// Image `icons8-Home-50`.
+    static let icons8Home50 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8-Home-50")
     /// Image `knob`.
     static let knob = Rswift.ImageResource(bundle: R.hostingBundle, name: "knob")
     /// Image `mask copy`.
@@ -182,6 +184,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.icons8Car49, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "icons8-Home-50", bundle: ..., traitCollection: ...)`
+    static func icons8Home50(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icons8Home50, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "knob", bundle: ..., traitCollection: ...)`
     static func knob(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.knob, compatibleWith: traitCollection)
@@ -215,21 +222,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
     /// Nib `LoadTripCell`.
     static let loadTripCell = _R.nib._LoadTripCell()
-    /// Nib `LoadTripTableHeaderView`.
-    static let loadTripTableHeaderView = _R.nib._LoadTripTableHeaderView()
     
     /// `UINib(name: "LoadTripCell", in: bundle)`
     static func loadTripCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.loadTripCell)
-    }
-    
-    /// `UINib(name: "LoadTripTableHeaderView", in: bundle)`
-    static func loadTripTableHeaderView(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.loadTripTableHeaderView)
     }
     
     fileprivate init() {}
@@ -243,19 +243,41 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
   struct segue {
+    /// This struct is generated for `PlatesViewController`, and contains static references to 1 segues.
+    struct platesViewController {
+      /// Segue identifier `TripShowDetail`.
+      static let tripShowDetail: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PlatesViewController, TripDetailViewController> = Rswift.StoryboardSegueIdentifier(identifier: "TripShowDetail")
+      
+      /// Optionally returns a typed version of segue `TripShowDetail`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func tripShowDetail(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PlatesViewController, TripDetailViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.platesViewController.tripShowDetail, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Main`.
+    static let main = _R.storyboard.main()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    
+    /// `UIStoryboard(name: "Main", bundle: ...)`
+    static func main(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.main)
     }
     
     fileprivate init() {}
@@ -268,7 +290,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -279,7 +301,11 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     struct _LoadTripCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
@@ -292,26 +318,64 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct _LoadTripTableHeaderView: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "LoadTripTableHeaderView"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> LoadTripTableHeaderView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LoadTripTableHeaderView
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try main.validate()
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      fileprivate init() {}
+    }
+    
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = HomeScreenViewController
+      
+      let bundle = R.hostingBundle
+      let createTripViewController = StoryboardViewControllerResource<CreateTripViewController>(identifier: "CreateTripViewController")
+      let homeScreenViewController = StoryboardViewControllerResource<HomeScreenViewController>(identifier: "HomeScreenViewController")
+      let loadTripViewController = StoryboardViewControllerResource<LoadTripViewController>(identifier: "LoadTripViewController")
+      let name = "Main"
+      let platesViewController = StoryboardViewControllerResource<PlatesViewController>(identifier: "PlatesViewController")
+      let tripDetailViewController = StoryboardViewControllerResource<TripDetailViewController>(identifier: "TripDetailViewController")
+      
+      func createTripViewController(_: Void = ()) -> CreateTripViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: createTripViewController)
+      }
+      
+      func homeScreenViewController(_: Void = ()) -> HomeScreenViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: homeScreenViewController)
+      }
+      
+      func loadTripViewController(_: Void = ()) -> LoadTripViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loadTripViewController)
+      }
+      
+      func platesViewController(_: Void = ()) -> PlatesViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: platesViewController)
+      }
+      
+      func tripDetailViewController(_: Void = ()) -> TripDetailViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tripDetailViewController)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "yellow_tab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'yellow_tab' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "green_tab") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'green_tab' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon2") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon2' is used in storyboard 'Main', but couldn't be loaded.") }
+        if _R.storyboard.main().platesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'platesViewController' could not be loaded from storyboard 'Main' as 'PlatesViewController'.") }
+        if _R.storyboard.main().tripDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tripDetailViewController' could not be loaded from storyboard 'Main' as 'TripDetailViewController'.") }
+        if _R.storyboard.main().homeScreenViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'homeScreenViewController' could not be loaded from storyboard 'Main' as 'HomeScreenViewController'.") }
+        if _R.storyboard.main().createTripViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'createTripViewController' could not be loaded from storyboard 'Main' as 'CreateTripViewController'.") }
+        if _R.storyboard.main().loadTripViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loadTripViewController' could not be loaded from storyboard 'Main' as 'LoadTripViewController'.") }
+      }
       
       fileprivate init() {}
     }

@@ -13,8 +13,6 @@
 		D014AFC91F7570A900FA757C /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014AFC81F7570A900FA757C /* TripDetailViewController.swift */; };
 		D02FBD101F2B7466009CC1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD0E1F2B7466009CC1CB /* Main.storyboard */; };
 		D02FBD131F2B749B009CC1CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD111F2B749B009CC1CB /* LaunchScreen.storyboard */; };
-		D02FBD181F2B7B62009CC1CB /* LoadTripTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */; };
-		D02FBD1B1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02FBD1A1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib */; };
 		D04F00AD1F7170FE007356AA /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5A54A1F716B9D009A4A51 /* SpeedView.swift */; };
 		D076E0B31EC5AEFA00FBCC2F /* LoadTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */; };
 		D076E0B51EC5BB4800FBCC2F /* LoadTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */; };
@@ -92,8 +90,6 @@
 		D014AFC81F7570A900FA757C /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		D02FBD0F1F2B7466009CC1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D02FBD121F2B749B009CC1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripTableHeaderView.swift; sourceTree = "<group>"; };
-		D02FBD1A1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadTripTableHeaderView.xib; sourceTree = "<group>"; };
 		D076E0B21EC5AEFA00FBCC2F /* LoadTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripViewController.swift; sourceTree = "<group>"; };
 		D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCell.swift; sourceTree = "<group>"; };
 		D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadTripCellModel.swift; sourceTree = "<group>"; };
@@ -219,8 +215,6 @@
 			children = (
 				D076E0B41EC5BB4800FBCC2F /* LoadTripCell.swift */,
 				D076E0B61EC5BD5A00FBCC2F /* LoadTripCellModel.swift */,
-				D02FBD171F2B7B62009CC1CB /* LoadTripTableHeaderView.swift */,
-				D02FBD1A1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib */,
 				D0AF51E41F7943EB00626FFF /* LoadTripCell.xib */,
 			);
 			name = Cells;
@@ -576,7 +570,6 @@
 			files = (
 				D0AF51E51F7943EB00626FFF /* LoadTripCell.xib in Resources */,
 				D0D89FB21EC1CD44005C3E83 /* .swiftlint.yml in Resources */,
-				D02FBD1B1F2B7C00009CC1CB /* LoadTripTableHeaderView.xib in Resources */,
 				D0AB0BF81F03F70700296C55 /* Settings.bundle in Resources */,
 				D02FBD101F2B7466009CC1CB /* Main.storyboard in Resources */,
 				D02FBD131F2B749B009CC1CB /* LaunchScreen.storyboard in Resources */,
@@ -779,7 +772,6 @@
 				D0D89FCF1EC1F777005C3E83 /* StringExtensions.swift in Sources */,
 				D0E256FC1F7BB27A0031961E /* Sector.swift in Sources */,
 				D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */,
-				D02FBD181F2B7B62009CC1CB /* LoadTripTableHeaderView.swift in Sources */,
 				D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */,
 				D076E0BB1EC5C9D600FBCC2F /* LocationManager.swift in Sources */,
 				D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */,
