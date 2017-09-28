@@ -31,6 +31,8 @@ class CreateTripViewController: UIViewController {
         goButton.setTitleColor(.red, for: .disabled)
         goButton.setTitle("GO!", for: .normal)
         goButton.isEnabled = false
+
+        addHomeButton()
     }
 
     override func didReceiveMemoryWarning() {
