@@ -62,14 +62,10 @@ struct R: Rswift.Validatable {
     static let bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "bg")
     /// Image `centerButton`.
     static let centerButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "centerButton")
+    /// Image `createTrip`.
+    static let createTrip = Rswift.ImageResource(bundle: R.hostingBundle, name: "createTrip")
     /// Image `green_tab`.
     static let green_tab = Rswift.ImageResource(bundle: R.hostingBundle, name: "green_tab")
-    /// Image `icon0`.
-    static let icon0 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon0")
-    /// Image `icon1`.
-    static let icon1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon1")
-    /// Image `icon2`.
-    static let icon2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon2")
     /// Image `icon3`.
     static let icon3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon3")
     /// Image `icon4`.
@@ -88,6 +84,10 @@ struct R: Rswift.Validatable {
     static let icons8Home50 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8-Home-50")
     /// Image `knob`.
     static let knob = Rswift.ImageResource(bundle: R.hostingBundle, name: "knob")
+    /// Image `loadTrip`.
+    static let loadTrip = Rswift.ImageResource(bundle: R.hostingBundle, name: "loadTrip")
+    /// Image `loadTrips`.
+    static let loadTrips = Rswift.ImageResource(bundle: R.hostingBundle, name: "loadTrips")
     /// Image `mask copy`.
     static let maskCopy = Rswift.ImageResource(bundle: R.hostingBundle, name: "mask copy")
     /// Image `mask`.
@@ -129,24 +129,14 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.centerButton, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "createTrip", bundle: ..., traitCollection: ...)`
+    static func createTrip(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.createTrip, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "green_tab", bundle: ..., traitCollection: ...)`
     static func green_tab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.green_tab, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "icon0", bundle: ..., traitCollection: ...)`
-    static func icon0(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon0, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "icon1", bundle: ..., traitCollection: ...)`
-    static func icon1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon1, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "icon2", bundle: ..., traitCollection: ...)`
-    static func icon2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon2, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon3", bundle: ..., traitCollection: ...)`
@@ -192,6 +182,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "knob", bundle: ..., traitCollection: ...)`
     static func knob(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.knob, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "loadTrip", bundle: ..., traitCollection: ...)`
+    static func loadTrip(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loadTrip, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "loadTrips", bundle: ..., traitCollection: ...)`
+    static func loadTrips(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loadTrips, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "mask copy", bundle: ..., traitCollection: ...)`

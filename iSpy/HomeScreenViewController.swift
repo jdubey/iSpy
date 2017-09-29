@@ -44,16 +44,15 @@ class HomeScreenViewController: UIViewController {
 }
 
 extension HomeScreenViewController: RotaryProtocol {
-    func wheelDidChangeValue(_ newValue: Int) {
+
+    func wheelDidChangeValue(_ newValue: SectorType) {
         switch newValue {
-        case 0:
+        case .createTrip:
             selectedViewController = R.storyboard.main.createTripViewController()
-        case 1:
+        case .loadTrip:
             selectedViewController = R.storyboard.main.platesViewController()
-        case 2:
+        case .loadTrips:
             selectedViewController = R.storyboard.main.loadTripViewController()
-        default:
-            print("nothig")
         }
     }
 }

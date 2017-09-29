@@ -13,7 +13,7 @@ struct Sector: CustomStringConvertible {
     let minValue: CGFloat
     let maxValue: CGFloat
     let midValue: CGFloat
-    let sector: Int
+    let sector: SectorType
 
     var description: String {
         return "\(sector) | \(minValue) \(midValue) \(maxValue)"

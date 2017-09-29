@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RotaryProtocol: class {
-    func wheelDidChangeValue(_ newValue: Int)
+    func wheelDidChangeValue(_ newValue: SectorType)
 }

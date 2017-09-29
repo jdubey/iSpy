@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class TripManagementMapView: UIView {
-    
+
     let reuseIdentifer = "Annotaton"
 
     var licensePlates = [LicensePlate]() {
@@ -52,7 +52,6 @@ class TripManagementMapView: UIView {
             let regionThatFits = mapView.regionThatFits(region)
             mapView.setRegion(regionThatFits, animated: false)
         }
-
 
         for index in 0...locations.count {
             let coord = CLLocationCoordinate2D(latitude: locations[index].latitude, longitude: locations[index].longitude)

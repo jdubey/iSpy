@@ -9,6 +9,25 @@
 import UIKit
 import CoreGraphics
 
+enum SectorType: Int {
+    var iconName: String {
+        switch self {
+        case .createTrip:
+            return "createTrip"
+        case .loadTrip:
+            return "loadTrip"
+        case .loadTrips:
+            return "loadTrips"
+        }
+    }
+
+    case createTrip = 0
+    case loadTrip = 1
+    case loadTrips = 2
+
+    static let allValues = [createTrip, loadTrip, loadTrips]
+}
+
 class RotaryWheel: UIControl {
 
     static var deltaAngle: CGFloat = 0.0
@@ -20,7 +39,14 @@ class RotaryWheel: UIControl {
     var numberOfSections = 0
     var startTransform = CGAffineTransform.identity
     var sectors = [Sector]()
-    var currentSector = 0
+    var currentSector = SectorType.createTrip
+    var disableTripOptions = false {
+        didSet {
+            if disableTripOptions == true {
+
+            }
+        }
+    }
 
     convenience init(frame: CGRect, delegate: RotaryProtocol, sectionsNumber: Int) {
         self.init(frame: frame)
@@ -37,18 +63,18 @@ class RotaryWheel: UIControl {
         container = UIView(frame: bounds)
         let angleSize: CGFloat = 2 * .pi / CGFloat(numberOfSections)
 
-        for index in 0...numberOfSections - 1 {
-            let imageView = UIImageView(image: #imageLiteral(resourceName: "segment"))
+        for sectorType in SectorType.allValues {
+            let imageView = SectorImageView(image: #imageLiteral(resourceName: "segment"))
             imageView.layer.anchorPoint = CGPoint(x: 1.0, y: 0.5)
             imageView.layer.position = CGPoint(x: container.bounds.width / 2.0 - container.frame.origin.x, y: container.bounds.height / 2.0 - container.frame.origin.y)
-            imageView.transform = CGAffineTransform(rotationAngle: angleSize * CGFloat(index))
+            imageView.transform = CGAffineTransform(rotationAngle: angleSize * CGFloat(sectorType.rawValue))
             imageView.alpha = minAlphaValue
-            imageView.tag = index
-            if index == 0 {
+            imageView.sectorType = sectorType
+            if sectorType == .createTrip {
                 imageView.alpha = maxAlphaValue
             }
 
-            let sectorImage = UIImage(named: "icon\(index)")
+            let sectorImage = UIImage(named: sectorType.iconName)
             let sectorView = UIImageView(image: sectorImage)
             sectorView.frame = CGRect(x: 12, y: 15, width: 40, height: 40)
             imageView.addSubview(sectorView)
@@ -89,7 +115,7 @@ class RotaryWheel: UIControl {
         // greater than pi or –pi, that means you’ve changed quadrant. Since you’ve populated the wheel clockwise, you have to
         // take into account when the minimum value is less than pi, and in that case change the sign of the midpoint.
 
-        for index in 0...numberOfSections - 1 {
+        for sectorType in SectorType.allValues {
             let midValue = mid
             let minValue = mid - (fanWidth / 2)
             let maxValue = mid + (fanWidth / 2)
@@ -100,7 +126,7 @@ class RotaryWheel: UIControl {
                 mid -= fanWidth
             }
 
-            let sector = Sector(minValue: minValue, maxValue: maxValue, midValue: midValue, sector: index)
+            let sector = Sector(minValue: minValue, maxValue: maxValue, midValue: midValue, sector: sectorType)
             sectors.append(sector)
         }
     }
@@ -116,7 +142,7 @@ class RotaryWheel: UIControl {
         // this instance pi (or -pi if you move counterclockwise) is not a max or min point, but it coincides with a midpoint.
         // So you have to check if, by subtracting the sector width from the max value, you pass the -pi limit, and if you do,
         // set the min value as positive.
-        for index in 0...numberOfSections - 1 {
+        for sectorType in SectorType.allValues {
             var minValue = mid - fanWidth / 2
             let maxValue = mid + fanWidth / 2
             var midValue = mid
@@ -127,12 +153,12 @@ class RotaryWheel: UIControl {
                 minValue = CGFloat(fabsf(Float(maxValue)))
             }
             mid -= fanWidth
-            let sector = Sector(minValue: minValue, maxValue: maxValue, midValue: midValue, sector: index)
+            let sector = Sector(minValue: minValue, maxValue: maxValue, midValue: midValue, sector: sectorType)
             sectors.append(sector)
         }
     }
 
-    @objc func turnWheel(gestureRecognizer: UIPanGestureRecognizer) {
+    @objc private func turnWheel(gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began:
             getSectorByValue(value: currentSector)?.alpha = minAlphaValue
@@ -175,7 +201,7 @@ class RotaryWheel: UIControl {
             container.transform = transform
             UIView.commitAnimations()
             delegate?.wheelDidChangeValue(currentSector)
-            getSectorByValue(value: currentSector)?.alpha = maxAlphaValue
+            getSectorByValue(value: currentSector)?.alpha = getMaxAlpha(currentSector)
         default:
             break
         }
@@ -194,11 +220,30 @@ class RotaryWheel: UIControl {
         return true
     }
 
-    private func getSectorByValue(value: Int) -> UIView? {
-        return container.subviews.filter({return $0.tag == value}).first
+    private func getSectorByValue(value: SectorType) -> UIView? {
+        let sectorViews = container.subviews.filter({
+            if let sector = $0 as? SectorImageView {
+                return sector.sectorType == value
+            }
+            return false
+        })
+        return sectorViews.first
+    }
+
+    private func getMaxAlpha(_ sector: SectorType) -> CGFloat {
+        if disableTripOptions == false {
+            return maxAlphaValue
+        } else {
+            if sector == .createTrip {
+                return maxAlphaValue
+            } else {
+                return minAlphaValue
+            }
+        }
     }
 }
 
+// MARK: - UIGestureRecognizerDelegate
 extension RotaryWheel: UIGestureRecognizerDelegate {
 
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {

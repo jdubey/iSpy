@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
 
     func addHomeButton() {
-        var homeButton = UIButton(frame: CGRect(x: 20, y: 20, width: 50, height: 50))
+        let homeButton = UIButton(frame: CGRect(x: 20, y: 20, width: 50, height: 50))
         homeButton.setImage(#imageLiteral(resourceName: "icons8-Home-50"), for: .normal)
         homeButton.addTarget(self, action: #selector(goHome(_:)), for: .touchUpInside)
         view.addSubview(homeButton)

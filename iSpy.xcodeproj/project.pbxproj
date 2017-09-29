@@ -22,6 +22,7 @@
 		D076E0C01EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0BF1EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift */; };
 		D076E0C21EC5F69400FBCC2F /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */; };
 		D076E1071ECA044000FBCC2F /* UIImageView+Protcols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076E1061ECA044000FBCC2F /* UIImageView+Protcols.swift */; };
+		D0A0F1691F7D1333002546F6 /* SectorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A0F1681F7D1333002546F6 /* SectorImageView.swift */; };
 		D0AB0BF81F03F70700296C55 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0AB0BF71F03F70700296C55 /* Settings.bundle */; };
 		D0AF51E51F7943EB00626FFF /* LoadTripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AF51E41F7943EB00626FFF /* LoadTripCell.xib */; };
 		D0D89F631EC1C52C005C3E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D89F621EC1C52C005C3E83 /* AppDelegate.swift */; };
@@ -98,6 +99,7 @@
 		D076E0BF1EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatesTableViewCellModel.swift; sourceTree = "<group>"; };
 		D076E0C11EC5F69400FBCC2F /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		D076E1061ECA044000FBCC2F /* UIImageView+Protcols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Protcols.swift"; sourceTree = "<group>"; };
+		D0A0F1681F7D1333002546F6 /* SectorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorImageView.swift; sourceTree = "<group>"; };
 		D0AB0BF71F03F70700296C55 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D0AF51E41F7943EB00626FFF /* LoadTripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadTripCell.xib; sourceTree = "<group>"; };
 		D0D89F5F1EC1C52C005C3E83 /* iSpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,14 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		D0A0F1671F7D130C002546F6 /* View Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				D0A0F1681F7D1333002546F6 /* SectorImageView.swift */,
+			);
+			name = "View Subclasses";
 			sourceTree = "<group>";
 		};
 		D0D89F561EC1C52C005C3E83 = {
@@ -427,6 +437,7 @@
 		D0F5A5481F716B6E009A4A51 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				D0A0F1671F7D130C002546F6 /* View Subclasses */,
 				D0E256F31F7BAEEB0031961E /* Selection Wheel */,
 				D0F5A5491F716B7B009A4A51 /* Speedometer */,
 			);
@@ -774,6 +785,7 @@
 				D0D89FBC1EC1ED2B005C3E83 /* CreateTripViewController.swift in Sources */,
 				D0D89FA81EC1CAFE005C3E83 /* Trip.swift in Sources */,
 				D076E0BB1EC5C9D600FBCC2F /* LocationManager.swift in Sources */,
+				D0A0F1691F7D1333002546F6 /* SectorImageView.swift in Sources */,
 				D076E0B71EC5BD5A00FBCC2F /* LoadTripCellModel.swift in Sources */,
 				D076E0C01EC5EEE400FBCC2F /* PlatesTableViewCellModel.swift in Sources */,
 				D0DA8BF61EFC0E31003352B2 /* TripManagementMapView.swift in Sources */,
