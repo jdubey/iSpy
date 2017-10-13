@@ -42,12 +42,11 @@ class CreateTripViewController: UIViewController {
 
     @IBAction func goButtonTapped(_ sender: UIButton) {
 
-        if let newTrip = TripService.defaultService.createTrip() {
+        if let newTrip = TripService.createTrip() {
 
-            DataManager.defaultRealm().beginWrite()
-            newTrip.name = nameTripTextField.text.require()
-            _ = DataManager.safeWrite()
-
+            DataManager.saveChanges {
+                newTrip.name = nameTripTextField.text.require()
+            }
             delegate?.didCreateTrip(self)
 
             //TODO: alert with action about creation fail, that dismisses vc

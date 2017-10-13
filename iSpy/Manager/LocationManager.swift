@@ -12,13 +12,13 @@ import RealmSwift
 
 class LocationManager: NSObject {
 
-    private static var _defaultManager = LocationManager()
-    fileprivate var _currentLocation: CLLocation?
+    private static var locationManager = LocationManager()
+    fileprivate var currentCLLocation: CLLocation?
 
-    fileprivate var clLocationManager = CLLocationManager()
+    private var clLocationManager = CLLocationManager()
 
     static func defaultManager() -> LocationManager {
-        return LocationManager._defaultManager
+        return LocationManager.locationManager
     }
 
     override init() {
@@ -52,9 +52,9 @@ class LocationManager: NSObject {
     }
 
     func currentLocation() -> Location? {
-        let newLocation: Location? = Location.createInRealm(realm: DataManager.defaultRealm(), value:["latitude": _currentLocation?.coordinate.latitude ?? 0.0,
-                                                                                           "longitude": _currentLocation?.coordinate.longitude ?? 0.0,
-                                                                                           "timestamp": _currentLocation?.timestamp ?? Date()])
+        let newLocation: Location? = Location.createInRealm(realm: DataManager.defaultRealm(), value:["latitude": currentCLLocation?.coordinate.latitude ?? 0.0,
+                                                                                           "longitude": currentCLLocation?.coordinate.longitude ?? 0.0,
+                                                                                           "timestamp": currentCLLocation?.timestamp ?? Date()])
         return newLocation
     }
 }
@@ -68,6 +68,6 @@ extension LocationManager : CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        _currentLocation = locations.last
+        currentCLLocation = locations.last
     }
 }

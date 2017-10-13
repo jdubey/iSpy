@@ -26,9 +26,9 @@ struct PlatesTableViewCellModel {
             return self.licensePlate.found
         }
         set {
-            realm.beginWrite()
-            licensePlate.found = newValue
-            _ = DataManager.safeWrite()
+            DataManager.saveChanges {
+                licensePlate.found = newValue
+            }
         }
     }
 
@@ -37,9 +37,9 @@ struct PlatesTableViewCellModel {
             return self.licensePlate.location
         }
         set {
-            realm.beginWrite()
-            licensePlate.location = newValue
-            _ = DataManager.safeWrite()
+            DataManager.saveChanges {
+                licensePlate.location = newValue
+            }
         }
     }
 

@@ -16,7 +16,7 @@ class PlatesViewController: UIViewController {
     @IBOutlet weak var speedView: SpeedView!
 
     lazy var trip: Trip? = {
-        return TripService.defaultService.fetchCurrentTrip()
+        return TripService.fetchCurrentTrip()
     }()
 
     fileprivate let realm = DataManager.defaultRealm()
@@ -33,7 +33,7 @@ class PlatesViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        trip = TripService.defaultService.fetchCurrentTrip()
+        trip = TripService.fetchCurrentTrip()
         if let plates = trip?.plates {
             plateModels = plates.map ({ PlatesTableViewCellModel($0) })
         }

@@ -15,10 +15,10 @@ class LoadTripViewController: UIViewController {
 
     @IBOutlet weak var tripCollectionView: UICollectionView!
 
-    fileprivate var trips = TripService.defaultService.fetchAllTrips().map { LoadTripCellModel(trip: $0) }
+    fileprivate var trips = TripService.fetchAllTrips().map { LoadTripCellModel(trip: $0) }
 
     fileprivate lazy var currentTrip: Trip? = {
-        return TripService.defaultService.fetchCurrentTrip()
+        return TripService.fetchCurrentTrip()
     }()
 
     var mkview = MKMapView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))

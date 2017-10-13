@@ -11,17 +11,13 @@ import RealmSwift
 
 class TripService: NSObject {
 
-    static var defaultService = TripService()
+    static private var realm = DataManager.defaultRealm()
 
-    private var realm = DataManager.defaultRealm()
-
-    func createTrip() -> Trip? {
+    static func createTrip() -> Trip? {
 
         if let currentTrip = fetchCurrentTrip() {
-            realm.beginWrite()
-            currentTrip.isCurrentTrip = false
-            if !DataManager.safeWrite() {
-                // Show an alert?  Pass result block in here?
+            DataManager.saveChanges {
+                currentTrip.isCurrentTrip = false
             }
         }
 
@@ -34,15 +30,15 @@ class TripService: NSObject {
         return trip
     }
 
-    func fetchTrip() -> Trip? {
+    static func fetchTrip() -> Trip? {
         return realm.objects(Trip.self).last
     }
 
-    func fetchCurrentTrip() -> Trip? {
+    static func fetchCurrentTrip() -> Trip? {
         return DataManager.defaultRealm().objects(Trip.self).filter("isCurrentTrip == true").first
     }
 
-    func fetchAllTrips() -> Results<Trip> {
+    static func fetchAllTrips() -> Results<Trip> {
         let sortProperties = [SortDescriptor(keyPath: "isCurrentTrip", ascending: false), SortDescriptor(keyPath: "name", ascending: true)]
 
         return DataManager.defaultRealm().objects(Trip.self).sorted(by: sortProperties)

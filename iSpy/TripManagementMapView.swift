@@ -44,37 +44,41 @@ class TripManagementMapView: UIView {
 
     private func setUpMapView() {
         let locations = licensePlates.flatMap({$0.location})
-        if locations.count > 0 {
-            let firstCoord =  CLLocationCoordinate2D(latitude: locations[0].latitude, longitude: locations[0].longitude)
-            mapView.setCenter(firstCoord, animated: true)
-            let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
-            let region = MKCoordinateRegionMake(firstCoord, span)
-            let regionThatFits = mapView.regionThatFits(region)
-            mapView.setRegion(regionThatFits, animated: false)
-        }
 
-        for index in 0...locations.count {
-            let coord = CLLocationCoordinate2D(latitude: locations[index].latitude, longitude: locations[index].longitude)
-            let annotation = Annotation(coord, title: licensePlates[index].name)
-            mapView.addAnnotation(annotation)
+        for (index, location) in locations.enumerated() {
+            if index == 0 {
+                let firstCoord =  CLLocationCoordinate2D(latitude: locations[0].latitude, longitude: locations[0].longitude)
+                mapView.setCenter(firstCoord, animated: true)
+                let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+                let region = MKCoordinateRegionMake(firstCoord, span)
+                let regionThatFits = mapView.regionThatFits(region)
+                mapView.setRegion(regionThatFits, animated: false)
+            } else {
+                let coord = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+                let annotation = Annotation(coord, title: licensePlates[index].name)
+                mapView.addAnnotation(annotation)
+            }
         }
     }
 }
 
 extension TripManagementMapView: MKMapViewDelegate {
+    fileprivate func configureAnnotation(_ annotationView: MKAnnotationView, _ annotation: MKAnnotation) {
+        annotationView.annotation = annotation
+        annotationView.image = #imageLiteral(resourceName: "icons8-Car-48")
+        annotationView.canShowCallout = true
+        let calloutLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 10))
+        calloutLabel.text = annotation.title!
+        annotationView.leftCalloutAccessoryView = calloutLabel
+    }
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifer) {
-            annotationView.annotation = annotation
-//            annotationView.addBackgroundImage(imageName: "icon1")
-            annotationView.canShowCallout = true
-            let calloutLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 10))
-            calloutLabel.text = annotation.title!
-            annotationView.leftCalloutAccessoryView = calloutLabel
+            configureAnnotation(annotationView, annotation)
             return annotationView
         } else {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifer)
-            annotationView.isEnabled = true
-            annotationView.image = #imageLiteral(resourceName: "icon1")
+            configureAnnotation(annotationView, annotation)
             return annotationView
         }
     }

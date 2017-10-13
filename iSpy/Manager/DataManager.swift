@@ -18,13 +18,17 @@ struct DataManager {
         return DataManager._defaultRealm.require(hint: "Realm load error")
     }
 
-    static func safeWrite() -> Bool {
-
+    private static func safeWrite() {
         do {
             try _defaultRealm?.commitWrite()
         } catch {
-            return false
+            print("Realm error: \(error)")
         }
-        return true
+    }
+
+    static func saveChanges(data: () -> (Void)) {
+        defaultRealm().beginWrite()
+        data()
+        DataManager.safeWrite()
     }
 }

@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
     }
 
     private func shouldShowCreateTrip() -> Bool {
-        if TripService.defaultService.fetchCurrentTrip() == nil {
+        if TripService.fetchCurrentTrip() == nil {
             showCreateTrip()
             return true
         }
@@ -73,7 +73,7 @@ class LoginViewController: UIViewController {
         viewControllers.append(loadTripViewController)
 
         if !shouldShowCreateTrip() {
-            platesViewController.trip = TripService.defaultService.fetchCurrentTrip()
+            platesViewController.trip = TripService.fetchCurrentTrip()
             showViewControllerAt(index: ButtonTag.trip.rawValue)
         }
     }
