@@ -28,6 +28,7 @@ public extension Optional {
                 message.append(". Debugging hint: \(hint)")
             }
 
+            #if !os(Linux)
             let exception = NSException(
                 name: .invalidArgumentException,
                 reason: message,
@@ -35,6 +36,8 @@ public extension Optional {
             )
 
             exception.raise()
+            #endif
+
             preconditionFailure(message)
         }
 

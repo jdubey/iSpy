@@ -1,35 +1,29 @@
 PODS:
-  - R.swift (3.3.0):
-    - R.swift.Library (~> 3.0.2)
-  - R.swift.Library (3.0.2)
-  - Realm (2.8.0):
-    - Realm/Headers (= 2.8.0)
-  - Realm/Headers (2.8.0)
-  - RealmSwift (2.8.0):
-    - Realm (= 2.8.0)
-  - Require (1.0.1)
-  - SwiftLint (0.19.0)
-  - TwitterCore (3.0.0)
-  - TwitterKit (3.0.3):
-    - TwitterCore (>= 3.0.0)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+  - Require (2.0.0)
+  - SwiftLint (0.24.0)
 
 DEPENDENCIES:
   - R.swift
-  - RealmSwift (~> 2.8)
+  - RealmSwift
   - Require
   - SwiftLint
-  - TwitterKit
 
 SPEC CHECKSUMS:
-  R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
-  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
-  Realm: 929243ad2b618b3232e70658bedc61110e7563f1
-  RealmSwift: 5b7079b891f2833d1849294161ba3e092bbda3f6
-  Require: d53aa5f529f280fed6bb9fba9802cbe4cd710403
-  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
-  TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
-  TwitterKit: 202404be71aadd81d19f677b34579fe77d9cb67e
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  Require: f93abc18dda985f665465cf027cea7166455fb28
+  SwiftLint: a014c92b4664e8b13f380f8640a51bb1733778ba
 
-PODFILE CHECKSUM: c6712cb119d394d81c2cfa9ea3f333edb99c7091
+PODFILE CHECKSUM: fdb37f4fc326e77a957da3ddef1f8a55b7c99301
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
